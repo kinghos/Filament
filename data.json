@@ -1,0 +1,14 @@
+{
+    "status": "success",
+    "data": {
+        "dnoRegion": "12",
+        "voltageLevel": "LV",
+        "data": [
+            {
+                "Overall": 11.2,
+                "unixTimestamp": 1673568000,
+                "Timestamp": "00:00 13-01-2023"
+            }
+        ]
+    }
+}
