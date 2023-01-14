@@ -11,10 +11,11 @@ def settlementPeriod(time):
     mins += hours * 60
     return mins // 30 + 1 # Settlement periods calculated
 
-SETTLEMENT_PERIOD = "1"
-SETTLEMENT_DATE = "2023-01-13"
-API_KEY = "k9tx07nd96x51aa"
-api_url = f"https://api.bmreports.com/BMRS/NETBSAD/v1?APIKey={API_KEY}&SettlementDate={SETTLEMENT_DATE}&SettlementPeriod={SETTLEMENT_PERIOD}&IsTwoDayWindow=false&ServiceType=CSV"
+START_DATE = "13-01-2023"
+END_DATE = "14-01-2023"
+DNO = 12
+VOLTAGE = "LV"
+api_url = f"https://odegdcpnma.execute-api.eu-west-2.amazonaws.com/development/prices?{DNO}&{VOLTAGE}&P{START_DATE}&{END_DATE}"
 
 with requests.Session() as s: # Starts a request session
     download = s.get(api_url) # Gets the CSV from the url
@@ -27,3 +28,5 @@ with requests.Session() as s: # Starts a request session
     with open(r"C:\Users\user\Documents\Homework\Young Engineers\API\data.csv", 'w') as file:
         writer = csv.writer(file) # Writer object created
         writer.writerows(my_list) # Writer object writes to file
+    
+    
