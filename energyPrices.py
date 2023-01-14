@@ -1,16 +1,53 @@
 import requests
 import json
+from datetime import datetime, timedelta
 
-START_DATE = "12-01-2023"
-END_DATE = "14-01-2023"
+
+END_DATE = datetime.now() 
+START_DATE = END_DATE - timedelta(days=1)
+END_DATE = END_DATE.strftime("%d-%m-%Y")
+START_DATE = START_DATE.strftime("%d-%m-%Y")
+
 DNO = 12 # Regional code - defaults to 12 (London)
 VOLTAGE = "LV"
-headers = {
+HEADERS = {
     'Accept':'application/json'
 }
-api_url = f"https://odegdcpnma.execute-api.eu-west-2.amazonaws.com/development/prices?dno={DNO}&voltage={VOLTAGE}&start={START_DATE}&end={END_DATE}"
+API_URL = f"https://odegdcpnma.execute-api.eu-west-2.amazonaws.com/development/prices?dno={DNO}&voltage={VOLTAGE}&start={START_DATE}&end={END_DATE}"
 
-response = requests.get(api_url, params={}, headers=headers) # Gets the json from the url
 
-with open(r"C:\Users\user\Documents\Homework\Young Engineers\API\energyPrices.json", "w") as f:
-    json.dump(response.json(), f, indent=4) # Dumps json file
+def roundTime(date):
+    minute = date.minute
+    hour = date.hour
+    if minute < 15:
+        date = date.replace(minute=0, second=0, microsecond=0)
+    elif minute >= 15  and minute < 45:
+        date = date.replace(minute=30, second=0, microsecond=0)
+    elif minute >= 45:
+        date = date.replace(minute=0, second=0, microsecond=0)
+        date += timedelta(hours=1)
+    return date
+
+def getPrices():
+    response = requests.get(API_URL, params={}, headers = HEADERS) # Gets the json from the url
+    priceDict = response.json()
+
+    with open(r"C:\Users\user\Documents\Homework\Young Engineers\API\energyPrices.json", "w") as f: # File is here for development purposes; not actually needed
+        f.seek(0) # Allows overwriting
+        json.dump(priceDict, f, indent=4) # Dumps json file
+    
+    timeList = []
+    for dic in priceDict["data"]["data"]:
+        timeList.append(dic["Timestamp"])
+
+    index = -1
+    roundNow = roundTime(datetime.now() - timedelta(days=1)).strftime("%H:%M %d-%m-%Y")
+    for i in range(len(timeList)):
+        if str(timeList[i]) == roundNow:
+            index = i
+
+    return priceDict["data"]["data"][index]["Overall"] # Returns the price. The price taken is the l
+    
+
+
+print(f"Price: £{getPrices()}/kWh") # At the time this is called, the price from the nearest time the previous day is returned
