@@ -1,0 +1,494 @@
+{
+    "status": "success",
+    "data": {
+        "dnoRegion": "10",
+        "voltageLevel": "HV",
+        "data": [
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622505600,
+                "Timestamp": "00:00 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622507400,
+                "Timestamp": "00:30 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622509200,
+                "Timestamp": "01:00 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622511000,
+                "Timestamp": "01:30 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622512800,
+                "Timestamp": "02:00 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622514600,
+                "Timestamp": "02:30 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622516400,
+                "Timestamp": "03:00 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622518200,
+                "Timestamp": "03:30 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622520000,
+                "Timestamp": "04:00 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622521800,
+                "Timestamp": "04:30 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622523600,
+                "Timestamp": "05:00 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622525400,
+                "Timestamp": "05:30 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622527200,
+                "Timestamp": "06:00 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622529000,
+                "Timestamp": "06:30 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622530800,
+                "Timestamp": "07:00 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622532600,
+                "Timestamp": "07:30 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622534400,
+                "Timestamp": "08:00 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622536200,
+                "Timestamp": "08:30 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622538000,
+                "Timestamp": "09:00 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622539800,
+                "Timestamp": "09:30 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622541600,
+                "Timestamp": "10:00 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622543400,
+                "Timestamp": "10:30 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622545200,
+                "Timestamp": "11:00 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622547000,
+                "Timestamp": "11:30 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622548800,
+                "Timestamp": "12:00 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622550600,
+                "Timestamp": "12:30 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622552400,
+                "Timestamp": "13:00 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622554200,
+                "Timestamp": "13:30 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622556000,
+                "Timestamp": "14:00 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622557800,
+                "Timestamp": "14:30 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622559600,
+                "Timestamp": "15:00 01-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622561400,
+                "Timestamp": "15:30 01-06-2021"
+            },
+            {
+                "Overall": 17.01,
+                "unixTimestamp": 1622563200,
+                "Timestamp": "16:00 01-06-2021"
+            },
+            {
+                "Overall": 17.01,
+                "unixTimestamp": 1622565000,
+                "Timestamp": "16:30 01-06-2021"
+            },
+            {
+                "Overall": 17.01,
+                "unixTimestamp": 1622566800,
+                "Timestamp": "17:00 01-06-2021"
+            },
+            {
+                "Overall": 17.01,
+                "unixTimestamp": 1622568600,
+                "Timestamp": "17:30 01-06-2021"
+            },
+            {
+                "Overall": 17.01,
+                "unixTimestamp": 1622570400,
+                "Timestamp": "18:00 01-06-2021"
+            },
+            {
+                "Overall": 17.01,
+                "unixTimestamp": 1622572200,
+                "Timestamp": "18:30 01-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622574000,
+                "Timestamp": "19:00 01-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622575800,
+                "Timestamp": "19:30 01-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622577600,
+                "Timestamp": "20:00 01-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622579400,
+                "Timestamp": "20:30 01-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622581200,
+                "Timestamp": "21:00 01-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622583000,
+                "Timestamp": "21:30 01-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622584800,
+                "Timestamp": "22:00 01-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622586600,
+                "Timestamp": "22:30 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622588400,
+                "Timestamp": "23:00 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622590200,
+                "Timestamp": "23:30 01-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622592000,
+                "Timestamp": "00:00 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622593800,
+                "Timestamp": "00:30 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622595600,
+                "Timestamp": "01:00 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622597400,
+                "Timestamp": "01:30 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622599200,
+                "Timestamp": "02:00 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622601000,
+                "Timestamp": "02:30 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622602800,
+                "Timestamp": "03:00 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622604600,
+                "Timestamp": "03:30 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622606400,
+                "Timestamp": "04:00 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622608200,
+                "Timestamp": "04:30 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622610000,
+                "Timestamp": "05:00 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622611800,
+                "Timestamp": "05:30 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622613600,
+                "Timestamp": "06:00 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622615400,
+                "Timestamp": "06:30 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622617200,
+                "Timestamp": "07:00 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622619000,
+                "Timestamp": "07:30 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622620800,
+                "Timestamp": "08:00 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622622600,
+                "Timestamp": "08:30 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622624400,
+                "Timestamp": "09:00 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622626200,
+                "Timestamp": "09:30 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622628000,
+                "Timestamp": "10:00 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622629800,
+                "Timestamp": "10:30 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622631600,
+                "Timestamp": "11:00 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622633400,
+                "Timestamp": "11:30 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622635200,
+                "Timestamp": "12:00 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622637000,
+                "Timestamp": "12:30 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622638800,
+                "Timestamp": "13:00 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622640600,
+                "Timestamp": "13:30 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622642400,
+                "Timestamp": "14:00 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622644200,
+                "Timestamp": "14:30 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622646000,
+                "Timestamp": "15:00 02-06-2021"
+            },
+            {
+                "Overall": 11.52,
+                "unixTimestamp": 1622647800,
+                "Timestamp": "15:30 02-06-2021"
+            },
+            {
+                "Overall": 17.01,
+                "unixTimestamp": 1622649600,
+                "Timestamp": "16:00 02-06-2021"
+            },
+            {
+                "Overall": 17.01,
+                "unixTimestamp": 1622651400,
+                "Timestamp": "16:30 02-06-2021"
+            },
+            {
+                "Overall": 17.01,
+                "unixTimestamp": 1622653200,
+                "Timestamp": "17:00 02-06-2021"
+            },
+            {
+                "Overall": 17.01,
+                "unixTimestamp": 1622655000,
+                "Timestamp": "17:30 02-06-2021"
+            },
+            {
+                "Overall": 17.01,
+                "unixTimestamp": 1622656800,
+                "Timestamp": "18:00 02-06-2021"
+            },
+            {
+                "Overall": 17.01,
+                "unixTimestamp": 1622658600,
+                "Timestamp": "18:30 02-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622660400,
+                "Timestamp": "19:00 02-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622662200,
+                "Timestamp": "19:30 02-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622664000,
+                "Timestamp": "20:00 02-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622665800,
+                "Timestamp": "20:30 02-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622667600,
+                "Timestamp": "21:00 02-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622669400,
+                "Timestamp": "21:30 02-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622671200,
+                "Timestamp": "22:00 02-06-2021"
+            },
+            {
+                "Overall": 11.1,
+                "unixTimestamp": 1622673000,
+                "Timestamp": "22:30 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622674800,
+                "Timestamp": "23:00 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622676600,
+                "Timestamp": "23:30 02-06-2021"
+            },
+            {
+                "Overall": 10.99,
+                "unixTimestamp": 1622678400,
+                "Timestamp": "00:00 03-06-2021"
+            }
+        ]
+    }
+}
