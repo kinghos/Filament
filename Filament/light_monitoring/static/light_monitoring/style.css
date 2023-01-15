@@ -1,0 +1,18 @@
+body {
+    font-family:"Century Gothic";
+    background-color: rgb(90, 106, 119);
+}
+
+#header {
+    background-color: rgb(78, 88, 85);
+    overflow: hidden;
+}
+
+h1 {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 17px;
+  }

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%block title%}Filament - Home {%endblock%}
+
+{% load static %}
+{%block head%}
+    <link rel="stylesheet" href="{% static 'light_monitoring/style.css' %}">
+{%endblock%}
+
+{%block body%}
+    <div id="header">
+        <h1>Filament</h1>
+    </div>
+    <h3>You've left your lights on for {{duration_tot}} seconds today!</h3>
+    
+        
+{%endblock%}
+
+
+
+
+
+
+
+
+
