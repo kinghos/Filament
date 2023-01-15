@@ -1,0 +1,13 @@
+{
+    "data": [
+        {
+            "from": "2023-01-15T13:30Z",
+            "to": "2023-01-15T14:00Z",
+            "intensity": {
+                "forecast": 96,
+                "actual": 104,
+                "index": "low"
+            }
+        }
+    ]
+}
