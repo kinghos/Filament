@@ -1,3 +1,11 @@
+#------------------------------------------Thorium - PA Pi-------------------------------------------
+# Energy price calculation code
+#  - Author & Date: Kingshuk, 14.1.22
+#  - Description: Grabs data on energy prices
+#    Takes the nearest 30 min period of the day, and then obtains the previous day's data at that time
+#----------------------------------------------------------------------------------------------------
+
+
 import requests
 import json
 from datetime import datetime, timedelta

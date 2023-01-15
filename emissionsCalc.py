@@ -1,3 +1,10 @@
+#------------------------------------------Thorium - PA Pi----------------------------------------------
+#    Carbon emissions calculation code
+#  - Author & Date: Kingshuk, 15.1.22
+#  - Description: Grabs data on carbon emissions
+#    Obtains the gCO₂/kWh rates, and calculates the g of CO₂ produced by the energy used to power bulbs
+#-------------------------------------------------------------------------------------------------------
+
 import requests
 import json
 
@@ -21,5 +28,5 @@ def getEmissions(power, numBulbs, time, emissions):
     return power * numBulbs * time * emissions
 
 emissionRate = getEmissionsRate()
-print(f"{emissionRate}gCO2/kWh")
+print(f"{emissionRate}gCO₂/kWh")
 print(f"{getEmissions(50, 1, 1, emissionRate)}g of CO₂")
