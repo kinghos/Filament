@@ -48,10 +48,10 @@ def getEnergyCosts():
     return priceDict["data"]["data"][index]["Overall"] # Returns the price. The price taken is the closest time from the previous day's data
     
 def calcPrices(power, time, numBulbs, prices): # Takes power in watts and time in hours
-    power = power / 1000 # Converts W to kW
+    power /= 1000 # Converts W to kW
     return power * time * numBulbs * prices
 
 # At the time this is called, the price from the nearest time the previous day is returned
 energyCosts = getEnergyCosts()
 print(f"Energy costs: £{energyCosts}/kWh")
-print(f"Money wasted: £{calcPrices(50, 1, 1, energyCosts):.2f} today")
+print(f"Cost of usage: £{calcPrices(50, 1, 1, energyCosts):.2f} today")
