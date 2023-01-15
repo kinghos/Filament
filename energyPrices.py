@@ -18,7 +18,6 @@ API_URL = f"https://odegdcpnma.execute-api.eu-west-2.amazonaws.com/development/p
 
 def roundTime(date):
     minute = date.minute
-    hour = date.hour
     if minute < 15:
         date = date.replace(minute=0, second=0, microsecond=0)
     elif minute >= 15  and minute < 45:
@@ -28,7 +27,7 @@ def roundTime(date):
         date += timedelta(hours=1)
     return date
 
-def getPrices():
+def getEnergyCosts():
     response = requests.get(API_URL, params={}, headers = HEADERS) # Gets the json from the url
     priceDict = response.json()
 
@@ -46,8 +45,13 @@ def getPrices():
         if str(timeList[i]) == roundNow:
             index = i
 
-    return priceDict["data"]["data"][index]["Overall"] # Returns the price. The price taken is the l
+    return priceDict["data"]["data"][index]["Overall"] # Returns the price. The price taken is the closest time from the previous day's data
     
+def calcPrices(power, time, numBulbs, prices): # Takes power in watts and time in hours
+    power = power / 1000 # Converts W to kW
+    return power * time * numBulbs * prices
 
-
-print(f"Price: £{getPrices()}/kWh") # At the time this is called, the price from the nearest time the previous day is returned
+# At the time this is called, the price from the nearest time the previous day is returned
+energyCosts = getEnergyCosts()
+print(f"Energy costs: £{energyCosts}/kWh")
+print(f"Money wasted: £{calcPrices(50, 1, 1, energyCosts):.2f} today")
