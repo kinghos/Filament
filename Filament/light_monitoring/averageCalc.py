@@ -12,15 +12,16 @@ from django.conf import settings
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-settings.configure(DATABASES= {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }})
+if not settings.configured:
+    settings.configure(DATABASES= {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }})
         
 django.setup()
 
-from models import *
+from .models import *
 
 
 def secondsUnitConv(seconds):
@@ -80,12 +81,12 @@ def calcYearAverage(year):
     return secondsUnitConv(tot), secondsUnitConv(avg)
 
 
-now = datetime.datetime.now()
-weekNumber = now.isocalendar()[1]
+# now = datetime.datetime.now()
+# weekNumber = now.isocalendar()[1]
 
-day = calcDayAverage(now)
-week = calcWeekAverage(weekNumber, now.year)
-month = calcMonthAverage(now.month, now.year)
-year = calcYearAverage(now.year)
+# day = calcDayAverage(now)
+# week = calcWeekAverage(weekNumber, now.year)
+# month = calcMonthAverage(now.month, now.year)
+# year = calcYearAverage(now.year)
 
-print(f"Daily average: {day}\nWeekly average: {week}\nMonthly average: {month}\nYearly average: {year}")
+# print(f"Daily average: {day}\nWeekly average: {week}\nMonthly average: {month}\nYearly average: {year}")

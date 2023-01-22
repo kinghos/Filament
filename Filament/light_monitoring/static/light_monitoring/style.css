@@ -1,11 +1,15 @@
 body {
     font-family:"Century Gothic";
-    background-color: rgb(90, 106, 119);
+    background-color: rgb(23, 129, 216);
+    margin: 0;
+    padding: 0;
+    
 }
 
 .topnav {
-    position: fixed; /* Stay on top */
+    position: relative; /* Stay on top */
     top: 0; /* Position the topnav bar at the top of the page */
+    margin: 0;
     width: 100%; /* Full width */
     display: flex; /* Make the topnav items appear next to each other */
     align-items: center; /* Center the items vertically */
@@ -41,3 +45,4 @@ h1 {
 a:hover {
     color: red;
 }
+

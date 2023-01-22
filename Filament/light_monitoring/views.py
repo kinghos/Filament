@@ -1,17 +1,18 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
 from .models import Data_Entry
 import datetime
-
+from light_monitoring.averageCalc import *
 
 def home(request):
-    duration_tot = 0
-    for i in Data_Entry.objects.all():
-        duration = i.endTime - i.startTime
-        duration_tot += duration.total_seconds()
-    template = loader.get_template("light_monitoring/home.html")
+    now = datetime.datetime.now()
+    dayTot, dayAvg = calcDayAverage(now)
+    weekTot, weekAvg = calcWeekAverage(now.isocalendar()[1], now.year)
+    monthTot, monthAvg = calcMonthAverage(now.month, now.year)
+    yearTot, yearAvg = calcYearAverage(now.year)
     context = {
-        'duration_tot': duration_tot,
+        "dailyAvg": str(dayAvg),
+        "weeklyAvg": weekAvg,
+        "monthlyAvg": monthAvg,
+        "yearlyAvg": yearAvg,
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'light_monitoring/home.html', context)
