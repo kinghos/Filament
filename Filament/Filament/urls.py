@@ -18,5 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('home/', include('light_monitoring.urls')),
+    path('settings/', include('light_monitoring.urls')),
+    path('data/', include('light_monitoring.urls')),
     path('admin/', admin.site.urls),
 ]

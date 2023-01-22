@@ -2,14 +2,22 @@
 <html lang="en">
 <head>
     <title>{% block title %}Filament{% endblock %}</title>
-    
-    
-    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'light_monitoring/style.css' %}">
 
     {%block head%}{%endblock%}
 </head>
 
 <body>
+    
+    <div class="topnav">
+        <h1><a href="/home">Home</a></h1>
+        <h1><a href="/data">Data</a></h1>
+        <h1><a href="/settings">Settings</a></h1>
+    </div>
+
+
+
     {%block body%}{%endblock%}
 </body>
 </html>

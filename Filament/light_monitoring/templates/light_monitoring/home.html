@@ -1,17 +1,11 @@
 {% extends 'base.html' %}
 {%block title%}Filament - Home {%endblock%}
 
-{% load static %}
+
 {%block head%}
-    <link rel="stylesheet" href="{% static 'light_monitoring/style.css' %}">
 {%endblock%}
 
 {%block body%}
-    <div class="topnav">
-        <h1><a href="/home">Filament</a></h1>
-        <h1><a href="/data">Data</a></h1>
-        <h1><a href="/settings">Settings</a></h1>
-    </div>
 
     <section style="position:absolute;">
         <h2>Your lights have been on for an average of {{dailyAvg}} today, and an average of {{weeklyAvg}} this week</h2>

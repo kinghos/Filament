@@ -18,3 +18,9 @@ def home(request):
         "yearlyAvg": yearAvg,
     }
     return render(request, 'light_monitoring/home.html', context)
+
+def data(request):
+    return render(request, 'light_monitoring/data.html')
+
+def settings(request):
+    return render(request, 'light_monitoring/settings.html')
