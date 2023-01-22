@@ -3,7 +3,7 @@ from .models import Data_Entry
 import datetime
 from light_monitoring.averageCalc import *
 
-def home(request):
+def filament(request):
     now = datetime.datetime.now()
     dayTot, dayAvg = calcDayAverage(now)
     weekTot, weekAvg = calcWeekAverage(now.isocalendar()[1], now.year)
@@ -17,7 +17,7 @@ def home(request):
         "monthlyAvg": monthAvg,
         "yearlyAvg": yearAvg,
     }
-    return render(request, 'light_monitoring/home.html', context)
+    return render(request, 'light_monitoring/filament.html', context)
 
 def data(request):
     return render(request, 'light_monitoring/data.html')

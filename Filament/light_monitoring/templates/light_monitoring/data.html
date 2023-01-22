@@ -5,3 +5,9 @@
 {%block head%}
     
 {%endblock%}
+
+{%block body}
+    {% for entry in Data_Entry.objects.all().order_by('endDate') %}
+        <p>{{ entry.endDate }}</p>
+    {% endfor %}
+{%endblock%}
