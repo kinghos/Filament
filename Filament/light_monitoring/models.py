@@ -5,7 +5,11 @@ class Data_Entry(models.Model):
     endTime = models.DateTimeField(default=None)
     
     def __str__(self):
-        duration = self.endTime - self.startTime
-        return f"{duration.total_seconds()} seconds"
+        start = self.startTime.strftime("%H:%M:%S %d-%m-%Y")
+        end = self.endTime.strftime("%H:%M:%S %d-%m-%Y")
+        return f"{start} — {end}"
+
     class Meta:
-        app_label  = 'light_monitoring'
+        app_label  = 'light_monitoring' # Needed for dataSaving.py
+
+    

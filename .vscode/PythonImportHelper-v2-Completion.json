@@ -33,6 +33,14 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -168,6 +176,22 @@
         "description": "django.conf",
         "isExtraImport": true,
         "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
         "documentation": {}
     },
     {
@@ -463,11 +487,119 @@
         "documentation": {}
     },
     {
+        "label": "secondsUnitConv",
+        "kind": 2,
+        "importPath": "Filament.light_monitoring.averageCalc",
+        "description": "Filament.light_monitoring.averageCalc",
+        "peekOfCode": "def secondsUnitConv(seconds):\n    minutes, seconds = divmod(seconds, 60)\n    hours, minutes = divmod(minutes, 60)\n    days, hours = divmod(hours, 24)\n    result = []\n    if days > 0:\n        result.append(f\"{days} day{'s' if days > 1 else ''}\")\n    if hours > 0:\n        result.append(f\"{hours} hour{'s' if hours > 1 else ''}\")\n    if minutes > 0:",
+        "detail": "Filament.light_monitoring.averageCalc",
+        "documentation": {}
+    },
+    {
+        "label": "calcDayAverage",
+        "kind": 2,
+        "importPath": "Filament.light_monitoring.averageCalc",
+        "description": "Filament.light_monitoring.averageCalc",
+        "peekOfCode": "def calcDayAverage(date):\n    qs = Data_Entry.objects.filter(endTime__date = date) # Generate a QuerySet of all of the data gathered at the given date\n    durations = []\n    for i in qs:\n        durations.append(int((i.endTime - i.startTime).total_seconds()))\n    tot = sum(durations)\n    avg = tot / len(durations)\n    return secondsUnitConv(tot), secondsUnitConv(avg)\ndef calcWeekAverage(week, year):\n    qs = Data_Entry.objects.filter(endTime__week = week).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given week in the given year",
+        "detail": "Filament.light_monitoring.averageCalc",
+        "documentation": {}
+    },
+    {
+        "label": "calcWeekAverage",
+        "kind": 2,
+        "importPath": "Filament.light_monitoring.averageCalc",
+        "description": "Filament.light_monitoring.averageCalc",
+        "peekOfCode": "def calcWeekAverage(week, year):\n    qs = Data_Entry.objects.filter(endTime__week = week).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given week in the given year\n    durations = []\n    for i in qs:\n        durations.append(int((i.endTime - i.startTime).total_seconds()))\n    tot = sum(durations)\n    avg = tot / len(durations)\n    return secondsUnitConv(tot), secondsUnitConv(avg)\ndef calcMonthAverage(month, year):\n    qs = Data_Entry.objects.filter(endTime__month = month).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given month in the given year",
+        "detail": "Filament.light_monitoring.averageCalc",
+        "documentation": {}
+    },
+    {
+        "label": "calcMonthAverage",
+        "kind": 2,
+        "importPath": "Filament.light_monitoring.averageCalc",
+        "description": "Filament.light_monitoring.averageCalc",
+        "peekOfCode": "def calcMonthAverage(month, year):\n    qs = Data_Entry.objects.filter(endTime__month = month).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given month in the given year\n    durations = []\n    for i in qs:\n        durations.append(int((i.endTime - i.startTime).total_seconds()))\n    tot = sum(durations)\n    avg = tot / len(durations)\n    return secondsUnitConv(tot), secondsUnitConv(avg)\ndef calcYearAverage(year):\n    qs = Data_Entry.objects.filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given year",
+        "detail": "Filament.light_monitoring.averageCalc",
+        "documentation": {}
+    },
+    {
+        "label": "calcYearAverage",
+        "kind": 2,
+        "importPath": "Filament.light_monitoring.averageCalc",
+        "description": "Filament.light_monitoring.averageCalc",
+        "peekOfCode": "def calcYearAverage(year):\n    qs = Data_Entry.objects.filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given year\n    durations = []\n    for i in qs:\n        durations.append(int((i.endTime - i.startTime).total_seconds()))\n    tot = sum(durations)\n    avg = tot / len(durations)\n    return secondsUnitConv(tot), secondsUnitConv(avg)\nnow = datetime.datetime.now()\nweekNumber = now.isocalendar()[1]",
+        "detail": "Filament.light_monitoring.averageCalc",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "Filament.light_monitoring.averageCalc",
+        "description": "Filament.light_monitoring.averageCalc",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\nsettings.configure(DATABASES= {\n        'default': {\n            'ENGINE': 'django.db.backends.sqlite3',\n            'NAME': BASE_DIR / 'db.sqlite3',\n        }})\ndjango.setup()\nfrom models import *\ndef secondsUnitConv(seconds):\n    minutes, seconds = divmod(seconds, 60)",
+        "detail": "Filament.light_monitoring.averageCalc",
+        "documentation": {}
+    },
+    {
+        "label": "now",
+        "kind": 5,
+        "importPath": "Filament.light_monitoring.averageCalc",
+        "description": "Filament.light_monitoring.averageCalc",
+        "peekOfCode": "now = datetime.datetime.now()\nweekNumber = now.isocalendar()[1]\nday = calcDayAverage(now)\nweek = calcWeekAverage(weekNumber, now.year)\nmonth = calcMonthAverage(now.month, now.year)\nyear = calcYearAverage(now.year)\nprint(f\"Daily average: {day}\\nWeekly average: {week}\\nMonthly average: {month}\\nYearly average: {year}\")",
+        "detail": "Filament.light_monitoring.averageCalc",
+        "documentation": {}
+    },
+    {
+        "label": "weekNumber",
+        "kind": 5,
+        "importPath": "Filament.light_monitoring.averageCalc",
+        "description": "Filament.light_monitoring.averageCalc",
+        "peekOfCode": "weekNumber = now.isocalendar()[1]\nday = calcDayAverage(now)\nweek = calcWeekAverage(weekNumber, now.year)\nmonth = calcMonthAverage(now.month, now.year)\nyear = calcYearAverage(now.year)\nprint(f\"Daily average: {day}\\nWeekly average: {week}\\nMonthly average: {month}\\nYearly average: {year}\")",
+        "detail": "Filament.light_monitoring.averageCalc",
+        "documentation": {}
+    },
+    {
+        "label": "day",
+        "kind": 5,
+        "importPath": "Filament.light_monitoring.averageCalc",
+        "description": "Filament.light_monitoring.averageCalc",
+        "peekOfCode": "day = calcDayAverage(now)\nweek = calcWeekAverage(weekNumber, now.year)\nmonth = calcMonthAverage(now.month, now.year)\nyear = calcYearAverage(now.year)\nprint(f\"Daily average: {day}\\nWeekly average: {week}\\nMonthly average: {month}\\nYearly average: {year}\")",
+        "detail": "Filament.light_monitoring.averageCalc",
+        "documentation": {}
+    },
+    {
+        "label": "week",
+        "kind": 5,
+        "importPath": "Filament.light_monitoring.averageCalc",
+        "description": "Filament.light_monitoring.averageCalc",
+        "peekOfCode": "week = calcWeekAverage(weekNumber, now.year)\nmonth = calcMonthAverage(now.month, now.year)\nyear = calcYearAverage(now.year)\nprint(f\"Daily average: {day}\\nWeekly average: {week}\\nMonthly average: {month}\\nYearly average: {year}\")",
+        "detail": "Filament.light_monitoring.averageCalc",
+        "documentation": {}
+    },
+    {
+        "label": "month",
+        "kind": 5,
+        "importPath": "Filament.light_monitoring.averageCalc",
+        "description": "Filament.light_monitoring.averageCalc",
+        "peekOfCode": "month = calcMonthAverage(now.month, now.year)\nyear = calcYearAverage(now.year)\nprint(f\"Daily average: {day}\\nWeekly average: {week}\\nMonthly average: {month}\\nYearly average: {year}\")",
+        "detail": "Filament.light_monitoring.averageCalc",
+        "documentation": {}
+    },
+    {
+        "label": "year",
+        "kind": 5,
+        "importPath": "Filament.light_monitoring.averageCalc",
+        "description": "Filament.light_monitoring.averageCalc",
+        "peekOfCode": "year = calcYearAverage(now.year)\nprint(f\"Daily average: {day}\\nWeekly average: {week}\\nMonthly average: {month}\\nYearly average: {year}\")",
+        "detail": "Filament.light_monitoring.averageCalc",
+        "documentation": {}
+    },
+    {
         "label": "fetchData",
         "kind": 2,
         "importPath": "Filament.light_monitoring.dataSaving",
         "description": "Filament.light_monitoring.dataSaving",
-        "peekOfCode": "def fetchData(): # Retrieves data from light sensing file; not implemented yet\n    # Placeholder vars\n    START_TIME = datetime.datetime.now() - datetime.timedelta(seconds=50)\n    END_TIME = datetime.datetime.now()\n    return START_TIME, END_TIME\nstart, end = fetchData()\nnewEntry = Data_Entry(startTime=start, endTime=end)\nprint(f\"Duration = {newEntry}\")\nnewEntry.save()",
+        "peekOfCode": "def fetchData(): # Retrieves data from light sensing file; not implemented yet\n    # Placeholder vars\n    START_TIME = datetime.datetime.now() - datetime.timedelta(seconds=60)\n    END_TIME = datetime.datetime.now()\n    return START_TIME, END_TIME\nstart, end = fetchData()\nnewEntry = Data_Entry(startTime=start, endTime=end)\nnewEntry.save()",
         "detail": "Filament.light_monitoring.dataSaving",
         "documentation": {}
     },
@@ -485,16 +617,7 @@
         "kind": 5,
         "importPath": "Filament.light_monitoring.dataSaving",
         "description": "Filament.light_monitoring.dataSaving",
-        "peekOfCode": "newEntry = Data_Entry(startTime=start, endTime=end)\nprint(f\"Duration = {newEntry}\")\nnewEntry.save()",
-        "detail": "Filament.light_monitoring.dataSaving",
-        "documentation": {}
-    },
-    {
-        "label": "print(f\"Duration",
-        "kind": 5,
-        "importPath": "Filament.light_monitoring.dataSaving",
-        "description": "Filament.light_monitoring.dataSaving",
-        "peekOfCode": "print(f\"Duration = {newEntry}\")\nnewEntry.save()",
+        "peekOfCode": "newEntry = Data_Entry(startTime=start, endTime=end)\nnewEntry.save()",
         "detail": "Filament.light_monitoring.dataSaving",
         "documentation": {}
     },
@@ -503,7 +626,7 @@
         "kind": 6,
         "importPath": "Filament.light_monitoring.models",
         "description": "Filament.light_monitoring.models",
-        "peekOfCode": "class Data_Entry(models.Model):\n    startTime = models.DateTimeField(default=None)\n    endTime = models.DateTimeField(default=None)\n    def __str__(self):\n        duration = self.endTime - self.startTime\n        return f\"{duration.total_seconds()} seconds\"\n    class Meta:\n        app_label  = 'light_monitoring'",
+        "peekOfCode": "class Data_Entry(models.Model):\n    startTime = models.DateTimeField(default=None)\n    endTime = models.DateTimeField(default=None)\n    def __str__(self):\n        start = self.startTime.strftime(\"%H:%M:%S %d-%m-%Y\")\n        end = self.endTime.strftime(\"%H:%M:%S %d-%m-%Y\")\n        return f\"{start} — {end}\"\n    class Meta:\n        app_label  = 'light_monitoring' # Needed for dataSaving.py",
         "detail": "Filament.light_monitoring.models",
         "documentation": {}
     },
