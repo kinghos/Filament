@@ -1,5 +1,4 @@
 from django.db import models
-import datetime
 
 class Data_Entry(models.Model):
     startTime = models.DateTimeField(default=None)

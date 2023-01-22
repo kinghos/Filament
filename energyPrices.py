@@ -39,7 +39,7 @@ def getEnergyCosts():
     response = requests.get(API_URL, params={}, headers = HEADERS) # Gets the json from the url
     priceDict = response.json()
 
-    with open(r"C:\Users\user\Documents\Homework\Young Engineers\API\energyPrices.json", "w") as f: # File is here for development purposes; not actually needed
+    with open("energyPrices.json", "w") as f: # File is here for development purposes; not actually needed
         f.seek(0) # Allows overwriting
         json.dump(priceDict, f, indent=4) # Dumps json file
     

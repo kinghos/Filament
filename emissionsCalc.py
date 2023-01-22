@@ -16,7 +16,7 @@ def getEmissionsRate():
     response = requests.get('https://api.carbonintensity.org.uk/intensity', params={}, headers = headers)
     emissionsDict = response.json()
 
-    with open(r"C:\Users\user\Documents\Homework\Young Engineers\API\emissions.json", "w") as f: # File is here for development purposes; not actually needed
+    with open("emissions.json", "w") as f: # File is here for development purposes; not actually needed
         f.seek(0) # Allows overwriting
         json.dump(emissionsDict, f, indent=4) # Dumps json file
     
