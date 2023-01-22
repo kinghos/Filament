@@ -31,13 +31,13 @@ def secondsUnitConv(seconds):
     result = []
 
     if days > 0:
-        result.append(f"{days} day{'s' if days > 1 else ''}")
+        result.append(f"{days:.0f} day{'s' if days > 1 else ''}")
     if hours > 0:
-        result.append(f"{hours} hour{'s' if hours > 1 else ''}")
+        result.append(f"{hours:.0f} hour{'s' if hours > 1 else ''}")
     if minutes > 0:
-        result.append(f"{minutes} minute{'s' if minutes > 1 else ''}")
+        result.append(f"{minutes:.0f} minute{'s' if minutes > 1 else ''}")
     if seconds > 0:
-        result.append(f"{seconds} second{'s' if seconds > 1 else ''}")
+        result.append(f"{seconds:.0f} second{'s' if seconds > 1 else ''}")
     return ", ".join(result)
 
 

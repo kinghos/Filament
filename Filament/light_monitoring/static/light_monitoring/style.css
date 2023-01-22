@@ -1,6 +1,7 @@
 body {
     font-family:"Century Gothic";
-    background-color: rgb(23, 129, 216);
+    background-color: rgb(15, 15, 15);
+    color: rgb(77, 77, 77);
     margin: 0;
     padding: 0;
     
@@ -13,7 +14,7 @@ body {
     width: 100%; /* Full width */
     display: flex; /* Make the topnav items appear next to each other */
     align-items: center; /* Center the items vertically */
-    background-color: #333; /* Background color */
+    background-color: rgb(124, 115, 138); /* Background color */
     color: #fff; /* Text color */
 }
 

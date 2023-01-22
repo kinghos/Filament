@@ -9,8 +9,10 @@ def home(request):
     weekTot, weekAvg = calcWeekAverage(now.isocalendar()[1], now.year)
     monthTot, monthAvg = calcMonthAverage(now.month, now.year)
     yearTot, yearAvg = calcYearAverage(now.year)
+
+    
     context = {
-        "dailyAvg": str(dayAvg),
+        "dailyAvg": dayAvg,
         "weeklyAvg": weekAvg,
         "monthlyAvg": monthAvg,
         "yearlyAvg": yearAvg,
