@@ -25,6 +25,14 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -113,19 +121,61 @@
         "documentation": {}
     },
     {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
         "label": "AppConfig",
         "importPath": "django.apps",
         "description": "django.apps",
         "isExtraImport": true,
         "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "django",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django",
+        "description": "django",
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
         "documentation": {}
     },
     {
@@ -158,31 +208,6 @@
         "description": "django.template",
         "isExtraImport": true,
         "detail": "django.template",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "datetime",
-        "description": "datetime",
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "timedelta",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
         "documentation": {}
     },
     {
@@ -253,7 +278,7 @@
         "kind": 5,
         "importPath": "Filament.Filament.settings",
         "description": "Filament.Filament.settings",
-        "peekOfCode": "SECRET_KEY = 'django-insecure-swaiw)6=q2n+%y1+rj)$nwwwi6lzwh@m7ian^0!3$s#m7s)dl^'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"*\"]\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-swaiw)6=q2n+%y1+rj)$nwwwi6lzwh@m7ian^0!3$s#m7s)dl^'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"*\"]\n# Application definition\nINSTALLED_APPS = [\n    'light_monitoring.apps.LightMonitoringConfig',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',",
         "detail": "Filament.Filament.settings",
         "documentation": {}
     },
@@ -262,7 +287,7 @@
         "kind": 5,
         "importPath": "Filament.Filament.settings",
         "description": "Filament.Filament.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"*\"]\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"*\"]\n# Application definition\nINSTALLED_APPS = [\n    'light_monitoring.apps.LightMonitoringConfig',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',",
         "detail": "Filament.Filament.settings",
         "documentation": {}
     },
@@ -271,7 +296,7 @@
         "kind": 5,
         "importPath": "Filament.Filament.settings",
         "description": "Filament.Filament.settings",
-        "peekOfCode": "ALLOWED_HOSTS = [\"*\"]\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'light_monitoring.apps.LightMonitoringConfig'",
+        "peekOfCode": "ALLOWED_HOSTS = [\"*\"]\n# Application definition\nINSTALLED_APPS = [\n    'light_monitoring.apps.LightMonitoringConfig',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
         "detail": "Filament.Filament.settings",
         "documentation": {}
     },
@@ -280,7 +305,7 @@
         "kind": 5,
         "importPath": "Filament.Filament.settings",
         "description": "Filament.Filament.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'light_monitoring.apps.LightMonitoringConfig'\n]\nMIDDLEWARE = [",
+        "peekOfCode": "INSTALLED_APPS = [\n    'light_monitoring.apps.LightMonitoringConfig',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n]\nMIDDLEWARE = [",
         "detail": "Filament.Filament.settings",
         "documentation": {}
     },
@@ -438,11 +463,47 @@
         "documentation": {}
     },
     {
+        "label": "fetchData",
+        "kind": 2,
+        "importPath": "Filament.light_monitoring.dataSaving",
+        "description": "Filament.light_monitoring.dataSaving",
+        "peekOfCode": "def fetchData(): # Retrieves data from light sensing file; not implemented yet\n    # Placeholder vars\n    START_TIME = datetime.datetime.now() - datetime.timedelta(seconds=50)\n    END_TIME = datetime.datetime.now()\n    return START_TIME, END_TIME\nstart, end = fetchData()\nnewEntry = Data_Entry(startTime=start, endTime=end)\nprint(f\"Duration = {newEntry}\")\nnewEntry.save()",
+        "detail": "Filament.light_monitoring.dataSaving",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "Filament.light_monitoring.dataSaving",
+        "description": "Filament.light_monitoring.dataSaving",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\nsettings.configure(DATABASES= {\n        'default': {\n            'ENGINE': 'django.db.backends.sqlite3',\n            'NAME': BASE_DIR / 'db.sqlite3',\n        }})\ndjango.setup()\nfrom models import *\ndef fetchData(): # Retrieves data from light sensing file; not implemented yet\n    # Placeholder vars",
+        "detail": "Filament.light_monitoring.dataSaving",
+        "documentation": {}
+    },
+    {
+        "label": "newEntry",
+        "kind": 5,
+        "importPath": "Filament.light_monitoring.dataSaving",
+        "description": "Filament.light_monitoring.dataSaving",
+        "peekOfCode": "newEntry = Data_Entry(startTime=start, endTime=end)\nprint(f\"Duration = {newEntry}\")\nnewEntry.save()",
+        "detail": "Filament.light_monitoring.dataSaving",
+        "documentation": {}
+    },
+    {
+        "label": "print(f\"Duration",
+        "kind": 5,
+        "importPath": "Filament.light_monitoring.dataSaving",
+        "description": "Filament.light_monitoring.dataSaving",
+        "peekOfCode": "print(f\"Duration = {newEntry}\")\nnewEntry.save()",
+        "detail": "Filament.light_monitoring.dataSaving",
+        "documentation": {}
+    },
+    {
         "label": "Data_Entry",
         "kind": 6,
         "importPath": "Filament.light_monitoring.models",
         "description": "Filament.light_monitoring.models",
-        "peekOfCode": "class Data_Entry(models.Model):\n    startTime = models.DateTimeField(default=None)\n    endTime = models.DateTimeField(default=None)\n    def __str__(self):\n        duration = self.endTime - self.startTime\n        return f\"{duration.total_seconds()} seconds\"",
+        "peekOfCode": "class Data_Entry(models.Model):\n    startTime = models.DateTimeField(default=None)\n    endTime = models.DateTimeField(default=None)\n    def __str__(self):\n        duration = self.endTime - self.startTime\n        return f\"{duration.total_seconds()} seconds\"\n    class Meta:\n        app_label  = 'light_monitoring'",
         "detail": "Filament.light_monitoring.models",
         "documentation": {}
     },
