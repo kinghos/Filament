@@ -3,9 +3,30 @@ body {
     background-color: rgb(90, 106, 119);
 }
 
-#header {
-    background-color: rgb(78, 88, 85);
-    overflow: hidden;
+.topnav {
+    position: fixed; /* Stay on top */
+    top: 0; /* Position the topnav bar at the top of the page */
+    width: 100%; /* Full width */
+    display: flex; /* Make the topnav items appear next to each other */
+    align-items: center; /* Center the items vertically */
+    background-color: #333; /* Background color */
+    color: #fff; /* Text color */
+}
+
+
+
+.topnav a{
+    display: inline-block; /* Make each element appear next to each other */
+    padding: 14px 16px; /* Add some spacing */
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* Text color */
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 600px) {
+    .topnav {
+        flex-wrap: wrap; /* Wrap the items when the screen is too small */
+    }
 }
 
 h1 {
@@ -16,3 +37,7 @@ h1 {
     text-decoration: none;
     font-size: 17px;
   }
+
+a:hover {
+    color: red;
+}
