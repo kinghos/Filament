@@ -20,7 +20,10 @@ def filament(request):
     return render(request, 'light_monitoring/filament.html', context)
 
 def data(request):
-    return render(request, 'light_monitoring/data.html')
+    context = {
+        "data_entries": Data_Entry.objects.all().order_by("endTime")
+    }
+    return render(request, 'light_monitoring/data.html', context)
 
 def settings(request):
     return render(request, 'light_monitoring/settings.html')
