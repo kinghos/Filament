@@ -40,7 +40,7 @@ def genWeekGraph(week, year):
     plt.ylabel('Duration')
 
     # Show the plot
-    plt.savefig(r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\graphs\graphs.png')
+    plt.savefig(r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs.png')
     plt.show()
     plt.close()
 

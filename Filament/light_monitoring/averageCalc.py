@@ -25,6 +25,8 @@ from .models import *
 
 
 def secondsUnitConv(seconds):
+    if seconds == 0:
+        return "0 seconds"
     minutes, seconds = divmod(seconds, 60)
     hours, minutes = divmod(minutes, 60)
     days, hours = divmod(hours, 24)
@@ -42,55 +44,56 @@ def secondsUnitConv(seconds):
 
 
 def calcDayAverage(date):
+    qs = Data_Entry.objects.filter(endTime__date = date) # Generate a QuerySet of all of the data gathered at the given date
+    durations = []
+    for i in qs:
+        durations.append(int((i.endTime - i.startTime).total_seconds()))
+    tot = sum(durations)
     try:
-        qs = Data_Entry.objects.filter(endTime__date = date) # Generate a QuerySet of all of the data gathered at the given date
-        durations = []
-        for i in qs:
-            durations.append(int((i.endTime - i.startTime).total_seconds()))
-        tot = sum(durations)
         avg = tot / len(durations)
         return secondsUnitConv(tot), secondsUnitConv(avg)
     except ZeroDivisionError:
-        return "0"
+        return secondsUnitConv(0), secondsUnitConv(0)
 
 
 def calcWeekAverage(week, year):
+    qs = Data_Entry.objects.filter(endTime__week = week).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given week in the given year
+    durations = []
+    for i in qs:
+        durations.append(int((i.endTime - i.startTime).total_seconds()))
+    tot = sum(durations)
     try:
-        qs = Data_Entry.objects.filter(endTime__week = week).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given week in the given year
-        durations = []
-        for i in qs:
-            durations.append(int((i.endTime - i.startTime).total_seconds()))
-        tot = sum(durations)
         avg = tot / len(durations)
         return secondsUnitConv(tot), secondsUnitConv(avg)
     except ZeroDivisionError:
-        return "0"
+        return secondsUnitConv(0), secondsUnitConv(0)
+    
 
 
 def calcMonthAverage(month, year):
+    qs = Data_Entry.objects.filter(endTime__month = month).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given month in the given year
+    durations = []
+    for i in qs:
+        durations.append(int((i.endTime - i.startTime).total_seconds()))
+    tot = sum(durations)
     try:
-        qs = Data_Entry.objects.filter(endTime__month = month).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given month in the given year
-        durations = []
-        for i in qs:
-            durations.append(int((i.endTime - i.startTime).total_seconds()))
-        tot = sum(durations)
         avg = tot / len(durations)
         return secondsUnitConv(tot), secondsUnitConv(avg)
     except ZeroDivisionError:
-        return "0"
+        return secondsUnitConv(0), secondsUnitConv(0)
 
 
 def calcYearAverage(year):
+    qs = Data_Entry.objects.filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given year
+    durations = []
+    for i in qs:
+        durations.append(int((i.endTime - i.startTime).total_seconds()))
+    tot = sum(durations)
     try:
-        qs = Data_Entry.objects.filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given year
-        durations = []
-        for i in qs:
-            durations.append(int((i.endTime - i.startTime).total_seconds()))
-        tot = sum(durations)
         avg = tot / len(durations)
         return secondsUnitConv(tot), secondsUnitConv(avg)
     except ZeroDivisionError:
-        return "0"
+        return secondsUnitConv(0), secondsUnitConv(0)
 
 
 # now = datetime.datetime.now()
@@ -101,4 +104,5 @@ def calcYearAverage(year):
 # month = calcMonthAverage(now.month, now.year)
 # year = calcYearAverage(now.year)
 
+# print(secondsUnitConv(0))
 # print(f"Daily average: {day}\nWeekly average: {week}\nMonthly average: {month}\nYearly average: {year}")

@@ -12,4 +12,3 @@ class Data_Entry(models.Model):
     class Meta:
         app_label  = 'light_monitoring' # Needed for dataSaving.py
 
-    

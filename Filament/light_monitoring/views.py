@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Data_Entry
 import datetime
 from light_monitoring.averageCalc import *
-
+    
 def filament(request):
     now = datetime.datetime.now()
     dayTot, dayAvg = calcDayAverage(now)
@@ -27,3 +27,4 @@ def data(request):
 
 def settings(request):
     return render(request, 'light_monitoring/settings.html')
+
