@@ -13,6 +13,8 @@ from datetime import datetime, timedelta
 import django
 from django.conf import settings
 from pathlib import Path
+import matplotlib.font_manager as font_manager
+from calendar import month_name
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 if not settings.configured:
@@ -48,7 +50,7 @@ def secondsUnitConv(secondsTup):
     return res
 
 
-def calcDayAverage(date, format=None):
+def calcDayAverage(date):
     qs = Data_Entry.objects.filter(endTime__date = date) # Generate a QuerySet of all of the data gathered at the given date
     durations = []
     for i in qs:
@@ -105,31 +107,36 @@ def findWeekDates(week, year):
     d = datetime.strptime(f"{year}-W{week}-1", "%Y-W%U-%w")
     return [d + timedelta(days=i) for i in range(7)]
 
-def genWeekGraph(week, year):
-    
-    weekDatesList = findWeekDates(week, year)
-    durations = []
-    for date in weekDatesList:
-        durations.append(calcDayAverage(date.date()))
-    durations = [i[1] for i in durations]
+def getDatesInMonth(month, year):
+    # Get the first and last day of the month
+    firstDay = datetime(year, month, 1)
+    if month == 12:
+        lastDay = datetime(year+1, 1, 1) - timedelta(days=1)
+    else:
+        lastDay = datetime(year, month+1, 1) - timedelta(days=1)
+
+    # Create a list of every date in the month
+    dates = []
+    currentDay = firstDay
+    while currentDay <= lastDay:
+        dates.append(currentDay)
+        currentDay += timedelta(days=1)
+    return dates
+
+# Color constants
+BGCOL = "#0f0f0f"
+PLOTCOL = "#3b3b3b"
+LINECOL = "#aaaaaa"
+LABELCOL = "#aaaaaa"
+BORDCOL = "#aaaaaa"
+
+def formatGraph(dateFormat, figNo):
+    plt.figure(figNo)
+    plt.switch_backend('agg')
+
 
     
-
-    
-    
-
-    # Color constants
-    BGCOL = "#0f0f0f"
-    PLOTCOL = "#3b3b3b"
-    LINECOL = "#aaaaaa"
-    LABELCOL = "#aaaaaa"
-    BORDCOL = "#aaaaaa"
-    FONT = ""
-
     # Get font
-    import matplotlib.font_manager as font_manager
-
-    
     font_dir = ['\static\light_monitoring\OpenSans-Regular.ttf']
     for font in font_manager.findSystemFonts(font_dir):
         font_manager.fontManager.addfont(font)
@@ -139,20 +146,12 @@ def genWeekGraph(week, year):
     
 
     # Format the line plot
-    myFmt = mdates.DateFormatter('%d-%m-%Y')
+    myFmt = mdates.DateFormatter(dateFormat)
     plt.gcf().autofmt_xdate()
     plt.gcf().set_size_inches(10, 7)
     plt.gca().xaxis.set_major_formatter(myFmt)
     plt.gcf().set_facecolor(BGCOL)
     
-
-    # Add axis labels
-    startDate = weekDatesList[0].strftime("%d-%m-%Y")
-    endDate = weekDatesList[-1].strftime("%d-%m-%Y")
-    plt.gca().set_title(f"Daily averages of energy waste from light, {startDate} - {endDate}", color=LABELCOL)
-    plt.gca().set_xlabel('Date', color=LABELCOL)
-    plt.gca().set_ylabel('Duration', color=LABELCOL)
-
     plt.gca().spines['left'].set_color(BORDCOL)        
     plt.gca().spines['top'].set_color(BORDCOL)         
     plt.gca().spines['bottom'].set_color(BORDCOL)         
@@ -162,11 +161,56 @@ def genWeekGraph(week, year):
     plt.tick_params(axis='x', labelcolor=LABELCOL)
     plt.tick_params(axis='y', labelcolor=LABELCOL)
 
+
+def genWeekGraph(week, year):
+    figNo = 1
+    plt.figure(figNo)
+
+    weekDatesList = findWeekDates(week, year)
+    durations = []
+    for date in weekDatesList:
+        durations.append(calcDayAverage(date.date()))
+    durations = [i[1] for i in durations]
+
+    # Add axis labels
+    startDate = weekDatesList[0].strftime("%d-%m-%Y")
+    endDate = weekDatesList[-1].strftime("%d-%m-%Y")
+    plt.gca().set_title(f"Daily averages of energy waste from light, {startDate} - {endDate}", color=LABELCOL)
+    plt.gca().set_xlabel('Date', color=LABELCOL)
+    plt.gca().set_ylabel('Duration', color=LABELCOL)
+
     # Show the plot
+    formatGraph('%d-%m-%Y', figNo)
     plt.plot(weekDatesList, durations, color=LINECOL)
     plt.savefig(r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\weekAvgGraph.png')
 
-week = datetime.now().isocalendar()[1] - 1
+def genMonthGraph(month, year):
+    figNo = 2
+    plt.figure(figNo)
+
+    durations = []
+    dates = getDatesInMonth(month, year)
+    for date in dates:
+        durations.append(calcDayAverage(date.date()))
+    durations = [i[1] for i in durations]
+
+    # Add axis labels
+    monthName = month_name[month]
+    plt.gca().set_title(f"Daily averages of energy waste from light, {monthName}", color=LABELCOL)
+    plt.gca().set_xlabel('Date', color=LABELCOL)
+    plt.gca().set_ylabel('Duration', color=LABELCOL)
+
+    # Show the plot
+    formatGraph('%d-%m-%Y', figNo)
+    plt.plot(dates, durations, color=LINECOL)
+    ticks = plt.gca().xaxis.get_major_ticks()
+    ticks[-1].label1.set_visible(False) # Hides last value (graph goes outside of month)
+
+    plt.savefig(r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\monthAvgGraph.png')
+
+week = (datetime.now() - timedelta(weeks=1)).isocalendar()[1]
 year = datetime.now().year
+month = (datetime.now()- timedelta(days=datetime.now().day)).month 
 genWeekGraph(week, year)
+genMonthGraph(month, year)
 
