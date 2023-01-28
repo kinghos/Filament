@@ -46,6 +46,12 @@ body {
     color: #fff; /* Text color */
 }
 
+legend {
+    background-color: rgb(68, 65, 77);
+    color: rgb(170, 170, 170);
+    padding: 3px 6px;
+}
+
 /* Responsive styles for smaller screens */
 @media screen and (max-width: 600px) {
     .topnav {
