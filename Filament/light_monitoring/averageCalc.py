@@ -6,7 +6,7 @@
 #    All functions return a tuple containing total time lights were on, and the average in that period
 #------------------------------------------------------------------------------------------------------
 
-import datetime
+
 import django
 from django.conf import settings
 from pathlib import Path
@@ -21,79 +21,10 @@ if not settings.configured:
         
 django.setup()
 
-from .models import *
+from models import *
 
 
-def secondsUnitConv(seconds):
-    if seconds == 0:
-        return "0 seconds"
-    minutes, seconds = divmod(seconds, 60)
-    hours, minutes = divmod(minutes, 60)
-    days, hours = divmod(hours, 24)
-    result = []
 
-    if days > 0:
-        result.append(f"{days:.0f} day{'s' if days > 1 else ''}")
-    if hours > 0:
-        result.append(f"{hours:.0f} hour{'s' if hours > 1 else ''}")
-    if minutes > 0:
-        result.append(f"{minutes:.0f} minute{'s' if minutes > 1 else ''}")
-    if seconds > 0:
-        result.append(f"{seconds:.0f} second{'s' if seconds > 1 else ''}")
-    return ", ".join(result)
-
-
-def calcDayAverage(date):
-    qs = Data_Entry.objects.filter(endTime__date = date) # Generate a QuerySet of all of the data gathered at the given date
-    durations = []
-    for i in qs:
-        durations.append(int((i.endTime - i.startTime).total_seconds()))
-    tot = sum(durations)
-    try:
-        avg = tot / len(durations)
-        return secondsUnitConv(tot), secondsUnitConv(avg)
-    except ZeroDivisionError:
-        return secondsUnitConv(0), secondsUnitConv(0)
-
-
-def calcWeekAverage(week, year):
-    qs = Data_Entry.objects.filter(endTime__week = week).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given week in the given year
-    durations = []
-    for i in qs:
-        durations.append(int((i.endTime - i.startTime).total_seconds()))
-    tot = sum(durations)
-    try:
-        avg = tot / len(durations)
-        return secondsUnitConv(tot), secondsUnitConv(avg)
-    except ZeroDivisionError:
-        return secondsUnitConv(0), secondsUnitConv(0)
-    
-
-
-def calcMonthAverage(month, year):
-    qs = Data_Entry.objects.filter(endTime__month = month).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given month in the given year
-    durations = []
-    for i in qs:
-        durations.append(int((i.endTime - i.startTime).total_seconds()))
-    tot = sum(durations)
-    try:
-        avg = tot / len(durations)
-        return secondsUnitConv(tot), secondsUnitConv(avg)
-    except ZeroDivisionError:
-        return secondsUnitConv(0), secondsUnitConv(0)
-
-
-def calcYearAverage(year):
-    qs = Data_Entry.objects.filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given year
-    durations = []
-    for i in qs:
-        durations.append(int((i.endTime - i.startTime).total_seconds()))
-    tot = sum(durations)
-    try:
-        avg = tot / len(durations)
-        return secondsUnitConv(tot), secondsUnitConv(avg)
-    except ZeroDivisionError:
-        return secondsUnitConv(0), secondsUnitConv(0)
 
 
 # now = datetime.datetime.now()

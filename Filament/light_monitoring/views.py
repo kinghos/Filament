@@ -1,14 +1,13 @@
 from django.shortcuts import render
 from .models import Data_Entry
-import datetime
-from light_monitoring.averageCalc import *
+from light_monitoring.graphGenerator import *
     
 def filament(request):
-    now = datetime.datetime.now()
-    dayTot, dayAvg = calcDayAverage(now)
-    weekTot, weekAvg = calcWeekAverage(now.isocalendar()[1], now.year)
-    monthTot, monthAvg = calcMonthAverage(now.month, now.year)
-    yearTot, yearAvg = calcYearAverage(now.year)
+    now = datetime.now()
+    dayTot, dayAvg = secondsUnitConv(calcDayAverage(now))
+    weekTot, weekAvg = secondsUnitConv(calcWeekAverage(now.isocalendar()[1], now.year))
+    monthTot, monthAvg = secondsUnitConv(calcMonthAverage(now.month, now.year))
+    yearTot, yearAvg = secondsUnitConv(calcYearAverage(now.year))
 
     
     context = {

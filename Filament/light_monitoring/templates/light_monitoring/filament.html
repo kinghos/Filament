@@ -7,8 +7,13 @@
 
 {%block body%}
 
-    <section style="position:absolute;">
+    <section>
         <h2>Your lights have been on for an average of {{dailyAvg}} today, and an average of {{weeklyAvg}} this week</h2>
+
+        <h3>Weekly data:</h3>
+
+        {%load static%}
+        <img src="{% static 'graphs/weekAvgGraph.png' %}">
     </section>
     
     
