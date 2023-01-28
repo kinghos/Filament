@@ -1,5 +1,5 @@
 #------------------------------------------Thorium - PA Pi---------------------------------------------
-# Averages and graph code
+# Averages and graph code, V2
 #  - Author & Date: Kingshuk, 28.1.22
 #  - Description: Grabs data from the database
 #    Contains functions for calculating daily, weekly, monthly and yearly averages
@@ -117,24 +117,56 @@ def genWeekGraph(week, year):
 
     
     
-    # Create a line plot
-    plt.plot(weekDatesList, durations)
+
+    # Color constants
+    BGCOL = "#0f0f0f"
+    PLOTCOL = "#3b3b3b"
+    LINECOL = "#aaaaaa"
+    LABELCOL = "#aaaaaa"
+    BORDCOL = "#aaaaaa"
+    FONT = ""
+
+    # Get font
+    import matplotlib.font_manager as font_manager
+
+    
+    font_dir = ['\static\light_monitoring\OpenSans-Regular.ttf']
+    for font in font_manager.findSystemFonts(font_dir):
+        font_manager.fontManager.addfont(font)
+
+    plt.rcParams["font.family"] = "Open Sans"
+    
+    
 
     # Format the line plot
     myFmt = mdates.DateFormatter('%d-%m-%Y')
-    plt.gca().xaxis.set_major_formatter(myFmt)
     plt.gcf().autofmt_xdate()
     plt.gcf().set_size_inches(10, 7)
-
+    plt.gca().xaxis.set_major_formatter(myFmt)
+    plt.gcf().set_facecolor(BGCOL)
+    
 
     # Add axis labels
-    plt.xlabel('Date')
-    plt.ylabel('Duration')
+    startDate = weekDatesList[0].strftime("%d-%m-%Y")
+    endDate = weekDatesList[-1].strftime("%d-%m-%Y")
+    plt.gca().set_title(f"Daily averages of energy waste from light, {startDate} - {endDate}", color=LABELCOL)
+    plt.gca().set_xlabel('Date', color=LABELCOL)
+    plt.gca().set_ylabel('Duration', color=LABELCOL)
+
+    plt.gca().spines['left'].set_color(BORDCOL)        
+    plt.gca().spines['top'].set_color(BORDCOL)         
+    plt.gca().spines['bottom'].set_color(BORDCOL)         
+    plt.gca().spines['right'].set_color(BORDCOL)         
+    plt.gca().set_facecolor(PLOTCOL)
+
+    plt.tick_params(axis='x', labelcolor=LABELCOL)
+    plt.tick_params(axis='y', labelcolor=LABELCOL)
 
     # Show the plot
+    plt.plot(weekDatesList, durations, color=LINECOL)
     plt.savefig(r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\weekAvgGraph.png')
 
-week = datetime.now().isocalendar()[1]
+week = datetime.now().isocalendar()[1] - 1
 year = datetime.now().year
 genWeekGraph(week, year)
 
