@@ -27,6 +27,6 @@ def getEmissions(power, numBulbs, time, emissions):
     power /= 1000
     return power * numBulbs * time * emissions
 
-emissionRate = getEmissionsRate()
-print(f"{emissionRate}gCO₂/kWh")
-print(f"{getEmissions(50, 1, 1, emissionRate)}g of CO₂")
+# emissionRate = getEmissionsRate()
+# print(f"{emissionRate}gCO₂/kWh")
+# print(f"{getEmissions(50, 1, 1, emissionRate)}g of CO₂")

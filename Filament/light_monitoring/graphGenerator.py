@@ -32,7 +32,7 @@ def secondsUnitConv(secondsTup):
     res = []
     for i in secondsTup:
         if i == 0:
-            return "0 seconds"
+            res.append("0 seconds")
         minutes, i = divmod(i, 60)
         hours, minutes = divmod(minutes, 60)
         days, hours = divmod(hours, 24)
@@ -47,6 +47,8 @@ def secondsUnitConv(secondsTup):
         if i > 0:
             result.append(f"{i:.0f} second{'s' if i > 1 else ''}")
         res.append(", ".join(result))
+
+    res = list(filter(None, res))
     return res
 
 

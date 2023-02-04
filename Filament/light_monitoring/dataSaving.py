@@ -27,7 +27,7 @@ from models import *
 
 def fetchData(): # Retrieves data from light sensing file; not implemented yet
     # Placeholder vars
-    START_TIME = datetime.datetime.now() - datetime.timedelta(seconds=60)
+    START_TIME = datetime.datetime.now() - datetime.timedelta(seconds=60) # Placeholder
     END_TIME = datetime.datetime.now()
 
     return START_TIME, END_TIME

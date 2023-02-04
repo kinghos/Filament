@@ -5,17 +5,24 @@ from .API import emissionsCalc, energyPrices
     
 def filament(request):
     now = datetime.now()
-    dayTot, dayAvg = secondsUnitConv(calcDayAverage(now))
-    weekTot, weekAvg = secondsUnitConv(calcWeekAverage(now.isocalendar()[1], now.year))
-    monthTot, monthAvg = secondsUnitConv(calcMonthAverage(now.month, now.year))
-    yearTot, yearAvg = secondsUnitConv(calcYearAverage(now.year))
+
+    dayTup = secondsUnitConv(calcDayAverage(now))
+    weekTup = secondsUnitConv(calcWeekAverage(now.isocalendar()[1], now.year))
+    monthTup = secondsUnitConv(calcMonthAverage(now.month, now.year))
+    yearTup = secondsUnitConv(calcYearAverage(now.year))
+
+
+    dayTot, dayAvg = dayTup[0], dayTup[1]
+    weekTot, weekAvg = weekTup[0], weekTup[1]
+    monthTot, monthAvg = monthTup[0], monthTup[1]
+    yearTot, yearAvg = yearTup[0], yearTup[1]
 
     energyCosts = energyPrices.getEnergyCosts()
     power = 50
     time = 1
     numBulbs = 1
     
-    print(type(energyCosts))
+    
     context = {
         "dailyAvg": dayAvg,
         "dayTot": dayTot,
