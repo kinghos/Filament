@@ -8,19 +8,18 @@ from django.views.generic import TemplateView
 def filament(request):
     now = datetime.now()
 
-    dayTup = secondsUnitConv(calcDayAverage(now))
-    weekTup = secondsUnitConv(calcWeekAverage(now.isocalendar()[1], now.year))
-    monthTup = secondsUnitConv(calcMonthAverage(now.month, now.year))
-    yearTup = secondsUnitConv(calcYearAverage(now.year))
+    dayTot = secondsUnitConv(getTot(now.date())[0])
+    weekTot = secondsUnitConv(getTot(week=now.isocalendar()[1], year=now.year)[0])
+    monthTot = secondsUnitConv(getTot(month=now.month, year=now.year)[0])
+    yearTot = secondsUnitConv(getTot(year=now.year)[0])
 
 
-    dayTot, dayAvg = dayTup[0], dayTup[1]
-    weekTot, weekAvg = weekTup[0], weekTup[1]
-    monthTot, monthAvg = monthTup[0], monthTup[1]
-    yearTot, yearAvg = yearTup[0], yearTup[1]
+    dayAvg = secondsUnitConv(calcDayAverage(now))
+    weekAvg = secondsUnitConv(calcWeekAverage(now.isocalendar()[1], now.year))
+    monthAvg = secondsUnitConv(calcMonthAverage(now.month, now.year))
+    yearAvg = secondsUnitConv(calcYearAverage(now.year))
 
-    DNO = Region.objects.last().region if Region.objects.last().region != None else "10"
-    print(DNO)
+    DNO = Region.objects.last().region if Region.objects.last().region else "10"
     energyCosts = energyPrices.getEnergyCosts(DNO)
     power = 50
     time = 1 

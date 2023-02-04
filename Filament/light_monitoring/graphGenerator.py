@@ -28,81 +28,88 @@ django.setup()
 from .models import *
 
 # AVERAGES
-def secondsUnitConv(secondsTup):
-    res = []
-    for i in secondsTup:
-        if i == 0:
-            res.append("0 seconds")
-        minutes, i = divmod(i, 60)
-        hours, minutes = divmod(minutes, 60)
-        days, hours = divmod(hours, 24)
-        result = []
+def secondsUnitConv(seconds):
+    result = []
+    if seconds == 0:
+        return "0 seconds"
+    minutes, seconds = divmod(seconds, 60)
+    hours, minutes = divmod(minutes, 60)
+    days, hours = divmod(hours, 24)
+    result = []
 
-        if days > 0:
-            result.append(f"{days:.0f} day{'s' if days > 1 else ''}")
-        if hours > 0:
-            result.append(f"{hours:.0f} hour{'s' if hours > 1 else ''}")
-        if minutes > 0:
-            result.append(f"{minutes:.0f} minute{'s' if minutes > 1 else ''}")
-        if i > 0:
-            result.append(f"{i:.0f} second{'s' if i > 1 else ''}")
-        res.append(", ".join(result))
+    if days > 0:
+        result.append(f"{days:.0f} day{'s' if days > 1 else ''}")
+    if hours > 0:
+        result.append(f"{hours:.0f} hour{'s' if hours > 1 else ''}")
+    if minutes > 0:
+        result.append(f"{minutes:.0f} minute{'s' if minutes > 1 else ''}")
+    if seconds > 0:
+        if minutes == hours == days == 0:
+            result.append(f"{seconds:.0f} second{'s' if seconds > 1 else ''}")
+        result.append(f"and {seconds:.0f} second{'s' if seconds > 1 else ''}")
+    
+    return ", ".join(result)
 
-    res = list(filter(None, res))
-    return res
+def getTot(day=None, week=None, month=None, year=None):
+    if year:
+        qs = Data_Entry.objects.filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given year
+        durations = []
+        for i in qs:
+            durations.append(int((i.endTime - i.startTime).total_seconds()))
+    elif day:
+        qs = Data_Entry.objects.filter(endTime__date = day) # Generate a QuerySet of all of the data gathered at the given date
+        durations = []
+        for i in qs:
+            durations.append(int((i.endTime - i.startTime).total_seconds()))
+    elif week and year:
+        qs = Data_Entry.objects.filter(endTime__week = week).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given week in the given year
+        durations = []
+        for i in qs:
+            durations.append(int((i.endTime - i.startTime).total_seconds()))
+    elif month and year:
+        qs = Data_Entry.objects.filter(endTime__month = month).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given month in the given year
+        durations = []
+        for i in qs:
+            durations.append(int((i.endTime - i.startTime).total_seconds()))
+    
+    return sum(durations), len(durations)
 
 
 def calcDayAverage(date):
-    qs = Data_Entry.objects.filter(endTime__date = date) # Generate a QuerySet of all of the data gathered at the given date
-    durations = []
-    for i in qs:
-        durations.append(int((i.endTime - i.startTime).total_seconds()))
-    tot = sum(durations)
+    tot, objs = getTot(date)
     try:
-        avg = tot / len(durations)
-        return tot, avg
+        avg = tot / objs
+        return avg
     except ZeroDivisionError:
-        return 0, 0
+        return 0
 
 
 def calcWeekAverage(week, year):
-    qs = Data_Entry.objects.filter(endTime__week = week).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given week in the given year
-    durations = []
-    for i in qs:
-        durations.append(int((i.endTime - i.startTime).total_seconds()))
-    tot = sum(durations)
+    tot, objs = getTot(week=week, year=year)
     try:
-        avg = tot / len(durations)
-        return tot, avg
+        avg = tot / objs
+        return avg
     except ZeroDivisionError:
-        return 0, 0
+        return 0
     
 
 
 def calcMonthAverage(month, year):
-    qs = Data_Entry.objects.filter(endTime__month = month).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given month in the given year
-    durations = []
-    for i in qs:
-        durations.append(int((i.endTime - i.startTime).total_seconds()))
-    tot = sum(durations)
+    tot, objs = getTot(month=month, year=year)
     try:
-        avg = tot / len(durations)
-        return tot, avg
+        avg = tot / objs
+        return avg
     except ZeroDivisionError:
-        return 0, 0
+        return 0
 
 
 def calcYearAverage(year):
-    qs = Data_Entry.objects.filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given year
-    durations = []
-    for i in qs:
-        durations.append(int((i.endTime - i.startTime).total_seconds()))
-    tot = sum(durations)
+    tot, objs = getTot(year=year)
     try:
-        avg = tot / len(durations)
-        return tot, avg
+        avg = tot / objs
+        return avg
     except ZeroDivisionError:
-        return 0, 0
+        return 0
     
 # GRAPHS
 def findWeekDates(week, year):
@@ -172,7 +179,7 @@ def genWeekGraph(week, year):
     durations = []
     for date in weekDatesList:
         durations.append(calcDayAverage(date.date()))
-    durations = [i[1] for i in durations]
+    durations = [i for i in durations]
 
     # Add axis labels
     startDate = weekDatesList[0].strftime("%d-%m-%Y")
@@ -194,7 +201,7 @@ def genMonthGraph(month, year):
     dates = getDatesInMonth(month, year)
     for date in dates:
         durations.append(calcDayAverage(date.date()))
-    durations = [i[1] for i in durations]
+    durations = [i for i in durations]
 
     # Add axis labels
     monthName = month_name[month]
