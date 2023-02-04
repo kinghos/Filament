@@ -23,4 +23,7 @@ class Region(models.Model):
     def save(self, *args, **kwargs):
         self.pk = self.id = 1
         return super().save(*args, **kwargs)
+    
+    class Meta:
+        app_label = 'light_monitoring' # Needed for dataSaving.py
 

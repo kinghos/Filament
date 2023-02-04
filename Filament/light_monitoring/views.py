@@ -8,7 +8,7 @@ from django.views.generic import TemplateView
 def filament(request):
     now = datetime.now()
 
-    dayTot = secondsUnitConv(getTot(now.date())[0])
+    dayTot = secondsUnitConv(getTot(day=now.date())[0])
     weekTot = secondsUnitConv(getTot(week=now.isocalendar()[1], year=now.year)[0])
     monthTot = secondsUnitConv(getTot(month=now.month, year=now.year)[0])
     yearTot = secondsUnitConv(getTot(year=now.year)[0])

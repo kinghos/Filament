@@ -50,8 +50,13 @@ def secondsUnitConv(seconds):
     
     return ", ".join(result)
 
-def getTot(day=None, week=None, month=None, year=None):
-    if year:
+def getTot(hour=None, day=None, week=None, month=None, year=None):
+    if hour:
+        qs = Data_Entry.objects.filter(startTime__hour = hour.hour) # Generate a QuerySet of all of the data gathered during the hour of the day
+        durations = []
+        for i in qs:
+            durations.append(int((i.endTime - i.startTime).total_seconds()))
+    elif year:
         qs = Data_Entry.objects.filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given year
         durations = []
         for i in qs:
@@ -75,8 +80,16 @@ def getTot(day=None, week=None, month=None, year=None):
     return sum(durations), len(durations)
 
 
+def calcHourAverage(dateHour):
+    tot, objs = getTot(dateHour)
+    try:
+        avg = tot / objs
+        return avg
+    except ZeroDivisionError:
+        return 0
+
 def calcDayAverage(date):
-    tot, objs = getTot(date)
+    tot, objs = getTot(day=date)
     try:
         avg = tot / objs
         return avg
@@ -112,6 +125,13 @@ def calcYearAverage(year):
         return 0
     
 # GRAPHS
+def getHoursInDay(date):
+    hours = []
+    for i in range(24):
+        hours.append(date + timedelta(hours=i))
+    return hours
+    
+
 def findWeekDates(week, year):
     d = datetime.strptime(f"{year}-W{week}-1", "%Y-W%U-%w")
     return [d + timedelta(days=i) for i in range(7)]
@@ -170,56 +190,81 @@ def formatGraph(dateFormat, figNo):
     plt.tick_params(axis='x', labelcolor=LABELCOL)
     plt.tick_params(axis='y', labelcolor=LABELCOL)
 
+def genDayGraph(date):
+    figNo = 1
+    plt.figure(figNo)
+
+    hoursList = getHoursInDay(date)
+    durations = []
+    for hour in hoursList:
+        durations.append(calcHourAverage(hour))
+
+    # Create the plot
+    formatGraph('%H', figNo)
+    plt.plot(hoursList, durations, color=LINECOL)
+
+    # Add axis labels
+    strDate = date.strftime("%d-%m-%Y")
+    plt.gca().set_title(f"Hourly averages of energy waste from light, {strDate}", color=LABELCOL)
+    plt.gca().set_xlabel("Hour number", color=LABELCOL)
+    plt.gca().set_ylabel('Duration (s)', color=LABELCOL)
+
+    # Save
+    plt.savefig(r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\dayAvgGraph.png')
+
 
 def genWeekGraph(week, year):
-    figNo = 1
+    figNo = 2
     plt.figure(figNo)
 
     weekDatesList = findWeekDates(week, year)
     durations = []
     for date in weekDatesList:
         durations.append(calcDayAverage(date.date()))
-    durations = [i for i in durations]
+
+    # Create the plot
+    formatGraph('%d-%m-%Y', figNo)
+    plt.plot(weekDatesList, durations, color=LINECOL)
 
     # Add axis labels
     startDate = weekDatesList[0].strftime("%d-%m-%Y")
     endDate = weekDatesList[-1].strftime("%d-%m-%Y")
     plt.gca().set_title(f"Daily averages of energy waste from light, {startDate} - {endDate}", color=LABELCOL)
     plt.gca().set_xlabel('Date', color=LABELCOL)
-    plt.gca().set_ylabel('Duration', color=LABELCOL)
+    plt.gca().set_ylabel('Duration (s)', color=LABELCOL)
 
-    # Show the plot
-    formatGraph('%d-%m-%Y', figNo)
-    plt.plot(weekDatesList, durations, color=LINECOL)
+    # Save
     plt.savefig(r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\weekAvgGraph.png')
 
 def genMonthGraph(month, year):
-    figNo = 2
+    figNo = 3
     plt.figure(figNo)
 
     durations = []
     dates = getDatesInMonth(month, year)
     for date in dates:
         durations.append(calcDayAverage(date.date()))
-    durations = [i for i in durations]
 
-    # Add axis labels
-    monthName = month_name[month]
-    plt.gca().set_title(f"Daily averages of energy waste from light, {monthName}", color=LABELCOL)
-    plt.gca().set_xlabel('Date', color=LABELCOL)
-    plt.gca().set_ylabel('Duration', color=LABELCOL)
-
-    # Show the plot
+    # Create the plot
     formatGraph('%d-%m-%Y', figNo)
     plt.plot(dates, durations, color=LINECOL)
     ticks = plt.gca().xaxis.get_major_ticks()
     ticks[-1].label1.set_visible(False) # Hides last value (graph goes outside of month)
 
+    # Add axis labels
+    monthName = month_name[month]
+    plt.gca().set_title(f"Daily averages of energy waste from light, {monthName}", color=LABELCOL)
+    plt.gca().set_xlabel('Date', color=LABELCOL)
+    plt.gca().set_ylabel('Duration (s)', color=LABELCOL)
+
+    # Save
     plt.savefig(r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\monthAvgGraph.png')
 
+date = datetime.now() - timedelta(days=1)
 week = (datetime.now() - timedelta(weeks=1)).isocalendar()[1]
 year = datetime.now().year
 month = (datetime.now()- timedelta(days=datetime.now().day)).month 
+genDayGraph(date)
 genWeekGraph(week, year)
 genMonthGraph(month, year)
 

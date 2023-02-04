@@ -3,9 +3,9 @@
     src: URL('OpenSans-Regular.ttf') format('truetype');
   }
 
-* {
+/* * {
     box-sizing: border-box;
-}  
+}   */
 
 body {
     font-family:"Open Sans";
@@ -15,17 +15,34 @@ body {
     padding: 0;
     
 }
-
-.column {
-    float: left;
-    width: 50%;
-    padding: 10px;
+ 
+.graphbox {
+    position: relative;
+    top: 580px;
 }
 
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+.topleft {
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+}
+
+.topright {
+    position: absolute;
+    left: 5px;
+    bottom: 10px;
+}
+
+.bottomleft {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+
+.bottomright {
+    position: absolute;
+    left: 5px;
+    top: 10px;
 }
 
 .topnav {

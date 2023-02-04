@@ -12,19 +12,33 @@
         Your lights have been on for an average of {{dayTot}} today, and a total of {{weekTot}} this week. <br>
         That's £{{dailyCosts}} today, and £{{weeklyCosts}} this week!
         </h2>
+    
+        <hr>
 
-        <div class="row">
-            <div class="column">
+        <div class="graphbox">
+            
+            {%load static%}
+            <div class="topleft">
                 <h2>Weekly data:</h2>
-                {%load static%}
-                <img src="{% static 'graphs/weekAvgGraph.png' %}" height=500 style="border-right-color:blue;">
+                <img src="{% static 'graphs/weekAvgGraph.png' %}" height=500>
             </div>
-            <div class="column">
+
+            <div class="topright">
+                <h2>Daily data:</h2>
+                <img src="{% static 'graphs/dayAvgGraph.png' %}" height=500>
+            </div>
+
+            <div class="bottomleft">
+                <h2>Yearly data:</h2>
+                <img src="{% static 'graphs/yearAvgGraph.png' %}" height=500>
+            </div>
+
+            <div class="bottomright">
                 <h2>Monthly data:</h2>
                 <img src="{% static 'graphs/monthAvgGraph.png' %}" height=500>
             </div>
-          </div>
-        
+            
+        </div>
     </section>
 
     
