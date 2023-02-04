@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 class Data_Entry(models.Model):
     startTime = models.DateTimeField(default=None)
@@ -14,3 +15,8 @@ class Data_Entry(models.Model):
 
 class Region(models.Model):
     region = models.CharField(max_length=2)
+
+    def save(self, *args, **kwargs):
+        if not self.pk and Region.objects.exists():
+            raise ValidationError('There can be only one Region instance')
+        return super(Region, self).save(*args, **kwargs)
