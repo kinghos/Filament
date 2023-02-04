@@ -56,4 +56,15 @@ class SettingsView(TemplateView):
         }
         return render(request, self.template_name, context)
 
-    
+    def post(self, request):
+        form = SettingsForm(request.POST)
+        if form.is_valid():
+            region = form.data["region"]
+            form.save()
+        else:
+            form = SettingsForm()
+        context = {
+            "form": form,
+            "region": region,
+        }
+        return render(request, self.template_name, context)

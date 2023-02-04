@@ -1,6 +1,7 @@
 from django import forms
+from .models import Region
 
-class SettingsForm(forms.Form):
+class SettingsForm(forms.ModelForm):
     REGION_CHOICES = (
         (10, 'Eastern England'),
         (11, 'East Midlands'),
@@ -18,3 +19,7 @@ class SettingsForm(forms.Form):
         (23, 'Yorkshire')
     )
     region = forms.ChoiceField(choices=REGION_CHOICES)
+
+    class Meta:
+        model = Region
+        fields = ("region",)
