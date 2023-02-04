@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from .models import Data_Entry
+from .models import *
 from light_monitoring.graphGenerator import *
 from .API import emissionsCalc, energyPrices
-    
+from .forms import SettingsForm
+from django.views.generic import TemplateView
+
 def filament(request):
     now = datetime.now()
 
@@ -44,6 +46,14 @@ def data(request):
     }
     return render(request, 'light_monitoring/data.html', context)
 
-def settings(request):
-    return render(request, 'light_monitoring/settings.html')
+class SettingsView(TemplateView):
+    template_name = "light_monitoring/settings.html"
 
+    def get(self, request):
+        form = SettingsForm()
+        context = {
+            "form": form
+        }
+        return render(request, self.template_name, context)
+
+    
