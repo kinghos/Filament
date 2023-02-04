@@ -36,7 +36,7 @@ def roundTime(date):
     return date
 
 
-def getEnergyCosts():
+def getEnergyCosts(DNO):
     response = requests.get(API_URL, params={}, headers = HEADERS) # Gets the json from the url
     priceDict = response.json()
 
@@ -61,6 +61,6 @@ def calcPrices(power, time, numBulbs, prices): # Takes power in watts and time i
     return power * time * numBulbs * prices
 
 # At the time this is called, the price from the nearest time the previous day is returned
-# energyCosts = getEnergyCosts()
+# energyCosts = getEnergyCosts(DNO)
 # print(f"Energy costs: £{energyCosts}/kWh")
 # print(f"Cost of usage: £{calcPrices(50, 1, 1, energyCosts):.2f} today")

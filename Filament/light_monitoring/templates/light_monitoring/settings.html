@@ -7,7 +7,7 @@
 {%endblock%}
 
 {%block body%}
-<h1>WIP</h1>
+<h3>WIP</h3>
 <ul> TO DO:
     <li>Allow setting region</li>
     <li>Allow setting bulb type</li>
@@ -18,8 +18,8 @@
 
 <form method="post">
     {% csrf_token %}
+    <p>Your region ID is currently {{region}}</p>
     {{ form.as_p }}
     <input type="submit" value="Submit">
-    <p>Your region ID is {{region}}</p>
 </form>
 {%endblock%}

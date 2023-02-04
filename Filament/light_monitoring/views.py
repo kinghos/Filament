@@ -19,9 +19,11 @@ def filament(request):
     monthTot, monthAvg = monthTup[0], monthTup[1]
     yearTot, yearAvg = yearTup[0], yearTup[1]
 
-    energyCosts = energyPrices.getEnergyCosts()
+    DNO = Region.objects.last().region if Region.objects.last().region != None else "10"
+    print(DNO)
+    energyCosts = energyPrices.getEnergyCosts(DNO)
     power = 50
-    time = 1
+    time = 1 
     numBulbs = 1
     
     
@@ -51,18 +53,23 @@ class SettingsView(TemplateView):
 
     def get(self, request):
         form = SettingsForm()
+        region = Region.objects.first().region
         context = {
-            "form": form
+            "form": form,
+            "region": region,
         }
         return render(request, self.template_name, context)
 
     def post(self, request):
         form = SettingsForm(request.POST)
+
         if form.is_valid():
-            region = form.data["region"]
+            Region.objects.all().delete()
             form.save()
+            region = form.cleaned_data["region"]
         else:
             form = SettingsForm()
+
         context = {
             "form": form,
             "region": region,

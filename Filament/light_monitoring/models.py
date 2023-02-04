@@ -16,7 +16,11 @@ class Data_Entry(models.Model):
 class Region(models.Model):
     region = models.CharField(max_length=2)
 
+    @classmethod
+    def object(cls):
+        return cls._default_manager.all().first() # Since only one item
+
     def save(self, *args, **kwargs):
-        if not self.pk and Region.objects.exists():
-            raise ValidationError('There can be only one Region instance')
-        return super(Region, self).save(*args, **kwargs)
+        self.pk = self.id = 1
+        return super().save(*args, **kwargs)
+

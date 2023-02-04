@@ -22,4 +22,4 @@ class SettingsForm(forms.ModelForm):
 
     class Meta:
         model = Region
-        fields = ("region",)
+        fields = {"region",}
