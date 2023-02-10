@@ -7,39 +7,62 @@
 
 {%block body%}
 
-    <section>
-        <h2>Your lights have been on for an average of {{dailyAvg}} today, and an average of {{weeklyAvg}} this week<br>
-        Your lights have been on for an average of {{dayTot}} today, and a total of {{weekTot}} this week. <br>
-        That's £{{dailyCosts}} today, and £{{weeklyCosts}} this week!
-        </h2>
-    
-        <hr>
 
-        <div class="graphbox">
-            
-            {%load static%}
-            <div class="topleft">
-                <h2>Weekly data:</h2>
-                <img src="{% static 'graphs/weekAvgGraph.png' %}" height=500>
-            </div>
+    <h2>Your lights have been on for an average of {{dailyAvg}} today, and an average of {{weeklyAvg}} this week<br>
+    Your lights have been on for an average of {{dayTot}} today, and a total of {{weekTot}} this week. <br>
+    That's £{{dailyCosts}} today, and £{{weeklyCosts}} this week!
+    </h2>
 
-            <div class="topright">
+    <hr>
+<!-- 
+    <div class="graphbox">
+        
+        {%load static%}
+        <div class="topleft">
+            <h2>Weekly data:</h2>
+            <img src="{% static 'graphs/weekAvgGraph.png' %}" height=500>
+        </div>
+
+        <div class="topright">
+            <h2>Daily data:</h2>
+            <img src="{% static 'graphs/dayAvgGraph.png' %}" height=500>
+        </div>
+
+        <div class="bottomleft">
+            <h2>Yearly data:</h2>
+            <img src="{% static 'graphs/yearAvgGraph.png' %}" height=500>
+        </div>
+
+        <div class="bottomright">
+            <h2>Monthly data:</h2>
+            <img src="{% static 'graphs/monthAvgGraph.png' %}" height=500>
+        </div>
+        
+    </div> -->
+    {%load static%}
+    <table class="graphbox">
+        <tr>
+            <td>
                 <h2>Daily data:</h2>
                 <img src="{% static 'graphs/dayAvgGraph.png' %}" height=500>
-            </div>
-
-            <div class="bottomleft">
-                <h2>Yearly data:</h2>
-                <img src="{% static 'graphs/yearAvgGraph.png' %}" height=500>
-            </div>
-
-            <div class="bottomright">
+            </td>
+            <td>
+                <h2>Weekly data:</h2>
+                <img src="{% static 'graphs/weekAvgGraph.png' %}" height=500>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <h2>Monthly data:</h2>
                 <img src="{% static 'graphs/monthAvgGraph.png' %}" height=500>
-            </div>
-            
-        </div>
-    </section>
+            </td>  
+            <td>
+                <h2>Yearly data:</h2>
+                <img src="{% static 'graphs/yearAvgGraph.png' %}" height=500>
+            </td>
+        </tr>
+    </table>
+    
 
     
     

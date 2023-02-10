@@ -17,32 +17,7 @@ body {
 }
  
 .graphbox {
-    position: relative;
-    top: 580px;
-}
-
-.topleft {
-    position: absolute;
-    right: 5px;
-    bottom: 10px;
-}
-
-.topright {
-    position: absolute;
-    left: 5px;
-    bottom: 10px;
-}
-
-.bottomleft {
-    position: absolute;
-    right: 5px;
-    top: 10px;
-}
-
-.bottomright {
-    position: absolute;
-    left: 5px;
-    top: 10px;
+    margin: auto;
 }
 
 .topnav {
