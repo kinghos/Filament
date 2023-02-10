@@ -260,10 +260,11 @@ def genMonthGraph(month, year):
     # Save
     plt.savefig(r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\monthAvgGraph.png')
 
-date = datetime.now() - timedelta(days=1)
-week = (datetime.now() - timedelta(weeks=1)).isocalendar()[1]
-year = datetime.now().year
-month = (datetime.now()- timedelta(days=datetime.now().day)).month 
+now = datetime.now()
+date = now.replace(hour=0, minute=0, second=0) - timedelta(days=1)
+week = (now - timedelta(weeks=1)).isocalendar()[1]
+year = now.year
+month = (now - timedelta(days=now.day)).month 
 genDayGraph(date)
 genWeekGraph(week, year)
 genMonthGraph(month, year)
