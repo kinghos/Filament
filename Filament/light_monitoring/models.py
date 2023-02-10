@@ -16,8 +16,8 @@ class Data_Entry(models.Model):
 class SettingsData(models.Model):
     region = models.CharField(max_length=2)
     numBulbs = models.IntegerField(default=1)
-    bulbPower = models.IntegerField(default=50)
-    bulbType = models.CharField(max_length=20, default="N/A")
+    bulbPower = models.IntegerField(default=50, blank=True)
+    bulbType = models.CharField(max_length=20, default="N/A", blank=True)
     @classmethod
     def object(cls):
         return cls._default_manager.all().first() # Since only one item
@@ -26,6 +26,9 @@ class SettingsData(models.Model):
         self.pk = self.id = 1
         return super().save(*args, **kwargs)
     
+    def __str__(self):
+        return f"{self.region}, {self.numBulbs}, {self.bulbPower}, {self.bulbType}"
+
     class Meta:
         app_label = 'light_monitoring' # Needed for dataSaving.py
 

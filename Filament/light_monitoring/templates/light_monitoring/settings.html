@@ -7,19 +7,13 @@
 {%endblock%}
 
 {%block body%}
-<h3>WIP</h3>
-<ul> TO DO:
-    <li>Allow setting region</li>
-    <li>Allow setting bulb type</li>
-    <li>Allow setting wattage</li>
-    <li>Allow setting num of bulbs</li>
-</ul>
+    <h1>SETTINGS</h1>
 
-
-<form method="post">
-    {% csrf_token %}
-    <p>Your region ID is currently {{region}}</p>
-    {{ form.as_p }}
-    <input type="submit" value="Submit">
-</form>
+    <form method="post">
+        <ul>
+            {% csrf_token %}
+            {{ form.as_ul }}
+            <input type="submit" value="Submit">
+        </ul>
+    </form>
 {%endblock%}

@@ -25,10 +25,10 @@ class SettingsForm(forms.ModelForm):
         ("LED", "LED"),
     )
 
-    region = forms.ChoiceField(choices=REGIONCHOICES)
-    numBulbs = forms.IntegerField()
-    bulbPower = forms.IntegerField()
-    bulbType = forms.ChoiceField(choices=BULBCHOICES)
+    region = forms.ChoiceField(choices=REGIONCHOICES, label="Region")
+    numBulbs = forms.IntegerField(label="Number of bulbs in the room")
+    bulbPower = forms.IntegerField(label="Power of your bulbs, in watts")
+    bulbType = forms.ChoiceField(choices=BULBCHOICES, label="Type of bulb")
 
     class Meta:
         model = SettingsData

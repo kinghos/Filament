@@ -4,6 +4,7 @@
 
 
 {%block body%}
+    <h1>DATA</h1>
     {% for entry in data_entries%}
         <p>{{entry.endTime|date:'Y-m-d h:i'}}</p>
     {% endfor %}

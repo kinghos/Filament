@@ -21,9 +21,9 @@ def filament(request):
 
     DNO = SettingsData.objects.last().region if SettingsData.objects.last().region else "10"
     energyCosts = energyPrices.getEnergyCosts(DNO)
-    power = 50
+    power  = SettingsData.objects.last().bulbPower
     time = 1 
-    numBulbs = 1
+    numBulbs = SettingsData.objects.last().numBulbs
     
     
     context = {
@@ -65,11 +65,17 @@ class SettingsView(TemplateView):
         if form.is_valid():
             form.save()
             region = form.cleaned_data["region"]
+            numBulbs = form.cleaned_data["numBulbs"]
+            bulbPower = form.cleaned_data["bulbPower"]
+            bulbType = form.cleaned_data["bulbType"]
         else:
             form = SettingsForm()
 
         context = {
             "form": form,
             "region": region,
+            "numBulbs": numBulbs,
+            "bulbPower": bulbPower,
+            "bulbType": bulbType,
         }
         return render(request, self.template_name, context)
