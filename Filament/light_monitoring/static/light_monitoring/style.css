@@ -11,8 +11,6 @@ body {
     font-family:"Open Sans";
     background-color: rgb(15, 15, 15);
     color: rgb(170, 170, 170);
-    margin: 0;
-    padding: 0;
     
 }
  
@@ -21,21 +19,23 @@ body {
 }
 
 .topnav {
-    position: relative; /* Stay on top */
-    top: 0; /* Position the topnav bar at the top of the page */
+    top: 0; 
     margin: 0;
-    width: 100%; /* Full width */
-    display: flex; /* Make the topnav items appear next to each other */
-    align-items: center; /* Center the items vertically */
-    background-color: rgb(124, 115, 138); /* Background color */
-    color: #fff; /* Text color */
+    width: 100%; 
+    display: flex; 
+    align-items: center; 
+    background-color: rgb(124, 115, 138); 
+    color: #fff;
+    border-radius: 10px;
+
+    
 }
 
 .topnav a{
-    display: inline-block; /* Make each element appear next to each other */
-    padding: 14px 16px; /* Add some spacing */
-    text-decoration: none; /* Remove underline */
-    color: #fff; /* Text color */
+    display: inline-block; 
+    padding: 14px 20px;
+    text-decoration: none; 
+    color: #fff; 
 }
 
 legend {
