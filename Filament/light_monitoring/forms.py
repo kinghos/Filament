@@ -1,8 +1,8 @@
 from django import forms
-from .models import Region
+from .models import SettingsData
 
 class SettingsForm(forms.ModelForm):
-    REGION_CHOICES = (
+    REGIONCHOICES = (
         (10, 'Eastern England'),
         (11, 'East Midlands'),
         (12, 'London'),
@@ -18,8 +18,18 @@ class SettingsForm(forms.ModelForm):
         (22, 'South Western'),
         (23, 'Yorkshire')
     )
-    region = forms.ChoiceField(choices=REGION_CHOICES)
+    BULBCHOICES = (
+        ("N/A", "Unsure"),
+        ("HAL", "Halogen"),
+        ("FIL", "Filament"),
+        ("LED", "LED"),
+    )
+
+    region = forms.ChoiceField(choices=REGIONCHOICES)
+    numBulbs = forms.IntegerField()
+    bulbPower = forms.IntegerField()
+    bulbType = forms.ChoiceField(choices=BULBCHOICES)
 
     class Meta:
-        model = Region
-        fields = {"region",}
+        model = SettingsData
+        fields = ("region", "numBulbs", "bulbPower", "bulbType")

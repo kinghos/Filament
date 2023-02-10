@@ -21,7 +21,6 @@ VOLTAGE = "LV"
 HEADERS = {
     'Accept':'application/json'
 }
-API_URL = f"https://odegdcpnma.execute-api.eu-west-2.amazonaws.com/development/prices?dno={DNO}&voltage={VOLTAGE}&start={START_DATE}&end={END_DATE}"
 
 
 def roundTime(date):
@@ -37,7 +36,7 @@ def roundTime(date):
 
 
 def getEnergyCosts(DNO):
-    response = requests.get(API_URL, params={}, headers = HEADERS) # Gets the json from the url
+    response = requests.get(f"https://odegdcpnma.execute-api.eu-west-2.amazonaws.com/development/prices?dno={DNO}&voltage={VOLTAGE}&start={START_DATE}&end={END_DATE}", params={}, headers = HEADERS) # Gets the json from the url
     priceDict = response.json()
 
     with open("energyPrices.json", "w") as f: # File is here for development purposes; not actually needed

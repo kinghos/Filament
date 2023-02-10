@@ -19,7 +19,7 @@ def filament(request):
     monthAvg = secondsUnitConv(calcMonthAverage(now.month, now.year))
     yearAvg = secondsUnitConv(calcYearAverage(now.year))
 
-    DNO = Region.objects.last().region if Region.objects.last().region else "10"
+    DNO = SettingsData.objects.last().region if SettingsData.objects.last().region else "10"
     energyCosts = energyPrices.getEnergyCosts(DNO)
     power = 50
     time = 1 
@@ -52,7 +52,7 @@ class SettingsView(TemplateView):
 
     def get(self, request):
         form = SettingsForm()
-        region = Region.objects.first().region
+        region = SettingsData.objects.first().region
         context = {
             "form": form,
             "region": region,
@@ -63,7 +63,6 @@ class SettingsView(TemplateView):
         form = SettingsForm(request.POST)
 
         if form.is_valid():
-            Region.objects.all().delete()
             form.save()
             region = form.cleaned_data["region"]
         else:

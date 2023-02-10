@@ -13,9 +13,11 @@ class Data_Entry(models.Model):
     class Meta:
         app_label  = 'light_monitoring' # Needed for dataSaving.py
 
-class Region(models.Model):
+class SettingsData(models.Model):
     region = models.CharField(max_length=2)
-
+    numBulbs = models.IntegerField(default=1)
+    bulbPower = models.IntegerField(default=50)
+    bulbType = models.CharField(max_length=20, default="N/A")
     @classmethod
     def object(cls):
         return cls._default_manager.all().first() # Since only one item
