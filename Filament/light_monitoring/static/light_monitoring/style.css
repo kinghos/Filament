@@ -45,6 +45,7 @@ legend {
 @media screen and (max-width: 600px) {
     .topnav {
         flex-wrap: wrap; /* Wrap the items when the screen is too small */
+        width: 100%;
     }
 }
 

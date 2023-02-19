@@ -25,7 +25,7 @@ def filament(request):
     energyCosts = energyPrices.getEnergyCosts(DNO)
     power  = SettingsData.objects.last().bulbPower
     numBulbs = SettingsData.objects.last().numBulbs
-    
+    rate = emissionsCalc.getEmissionsRate()
     
     context = {
         "dailyAvg": dayAvg,
@@ -38,6 +38,8 @@ def filament(request):
         "yearTot": yearTot,
         "dailyCosts": f"{energyPrices.calcPrices(power, getTot(day=now.date())[0] / 3600, numBulbs, energyCosts):.2f}",
         "weeklyCosts": f"{energyPrices.calcPrices(power, getTot(week=now.isocalendar()[1], year=now.year)[0] / 3600, numBulbs, energyCosts):.2f}",
+        "dailyEmissions": f"{emissionsCalc.getEmissions(power, numBulbs, getTot(day=now.date())[0] / 3600, rate):.2f}",
+        "weeklyEmissions": f"{emissionsCalc.getEmissions(power, numBulbs, getTot(week=now.isocalendar()[1], year=now.year)[0] / 3600, rate):.2f}",
 
     }
     return render(request, 'light_monitoring/filament.html', context)
