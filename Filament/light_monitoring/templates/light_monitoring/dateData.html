@@ -6,11 +6,13 @@
 <ul>
 {% for entry in dataEntries %}
     <li>{{ entry }}</li>
-{% empty %}
-    <li>No data found for this day.</li>
 {% endfor %}
+{% if dataEntries %}
+    {%load static%}
+    <img src="{% static 'graphs/queries/' %}{{ year }}_{{ month }}_{{ day }}.png">
+{% else %}
+    <li>No data found for this day.</li>
+{% endif %}
 </ul>
 
-{%load static%}
-<img src="{% static 'graphs/queries/' %}{{ year }}_{{ month }}_{{ day }}.png">
 {% endblock %}

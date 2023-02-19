@@ -4,14 +4,14 @@
 <h1>Data for {{ year }}/{{ month }}</h1>
 
 <ul>
-{% for entry in dataEntries %}
-    <li>{{ entry }}</li>
-{% empty %}
-    <li>No data found for this month.</li>
-{% endfor %}
+{% if dataEntries%}
+    {%load static%}
+    <img src="{% static 'graphs/queries/' %}{{ year }}_{{ month }}.png">
+{% else %}
+    <li>No data found for this month.</li> 
+{% endif %}
 </ul>
 
-{%load static%}
-<img src="{% static 'graphs/queries/' %}{{ year }}_{{ month }}.png">
+
 
 {% endblock %}

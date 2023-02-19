@@ -176,9 +176,9 @@ def formatGraph(dateFormat, figNo):
 
     # Format the line plot
     myFmt = mdates.DateFormatter(dateFormat)
+    plt.gca().xaxis.set_major_formatter(myFmt)
     plt.gcf().autofmt_xdate()
     plt.gcf().set_size_inches(10, 7)
-    plt.gca().xaxis.set_major_formatter(myFmt)
     plt.gcf().set_facecolor(BGCOL)
     
     plt.gca().spines['left'].set_color(BORDCOL)        
@@ -256,6 +256,28 @@ def genMonthGraph(month, year, filename):
     plt.gca().set_title(f"Daily averages of energy waste from light, {monthName} {year}", color=LABELCOL)
     plt.gca().set_xlabel('Date', color=LABELCOL)
     plt.gca().set_ylabel('Duration (s)', color=LABELCOL)
+    
+    # Save
+    plt.savefig(filename)
+
+def genYearGraph(year, filename):
+    figNo = 4
+    plt.figure(figNo)
+
+    durations = []
+    for i in range(1, 13):
+        durations.append(calcMonthAverage(i, year) / 3600)
+    # Create the plot
+    print(durations)
+    formatGraph('%B', figNo)
+    months = [datetime(year=year, month=i, day=1) for i in range(1, 13)]
+    plt.plot(months, durations, color=LINECOL)
+    
+    # Add axis labels
+    plt.gca().set_title(f"Monthly averages of energy waste from light, {year}", color=LABELCOL)
+    plt.gca().set_xlabel("Month", color=LABELCOL)
+    plt.gca().set_ylabel("Duration (h)", color = LABELCOL)
+    plt.xticks(months)
 
     # Save
     plt.savefig(filename)
@@ -263,9 +285,10 @@ def genMonthGraph(month, year, filename):
 now = datetime.now()
 date = now.replace(hour=0, minute=0, second=0) - timedelta(days=1)
 week = (now - timedelta(weeks=1)).isocalendar()[1]
-year = now.year
+year = now.year - 1
 month = (now - timedelta(days=now.day)).month 
 genDayGraph(date, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\dayAvgGraph.png')
 genWeekGraph(week, year, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\yearAvgGraph.png')
 genMonthGraph(month, year, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\monthAvgGraph.png')
+genYearGraph(year, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\yearAvgGraph.png')
 

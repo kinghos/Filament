@@ -3,9 +3,6 @@
     src: URL('OpenSans-Regular.ttf') format('truetype');
   }
 
-/* * {
-    box-sizing: border-box;
-}   */
 
 body {
     font-family:"Open Sans";
@@ -59,6 +56,11 @@ legend {
     text-decoration: none;
     font-size: 17px;
   }
+
+
+a {
+    color:rgb(123, 97, 167);
+}
 
 a:hover {
     color: red;

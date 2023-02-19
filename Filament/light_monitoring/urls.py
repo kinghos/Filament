@@ -10,4 +10,5 @@ urlpatterns = [
     path('data/<int:year>/<int:month>/', monthData, name='monthData'),
     path('data/<int:year>/<int:month>/<int:day>/', dateData, name='dateData'),
     path('settings/', SettingsView.as_view(), name="settings"),
+    path('advice/', advice, name="advice")
 ]

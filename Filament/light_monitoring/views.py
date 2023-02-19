@@ -82,12 +82,13 @@ class SettingsView(TemplateView):
         return render(request, self.template_name, context)
 
 def yearData(request, year):
+    imgpath = fr"C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\queries\{year}"
     qs = Data_Entry.objects.filter(endTime__year=year)
     context = {
         'dataEntries': qs,
         "year":year
     }
-    # add after yeargraphgen done
+    genYearGraph(year, imgpath)
     return render(request, 'light_monitoring/yearData.html', context)
 
 def monthData(request, year, month):
@@ -128,3 +129,6 @@ def dataRedirect(request):
     else:
         # Handle invalid form data
         pass
+
+def advice(request):
+    return render(request, "light_monitoring/advice.html")
