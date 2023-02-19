@@ -35,8 +35,8 @@ def filament(request):
         "month": monthTot,
         "yearlyAvg": yearAvg,
         "yearTot": yearTot,
-        "dailyCosts": f"{energyPrices.calcPrices(power, time, numBulbs, energyCosts):.2f}",
-        "weeklyCosts": f"{energyPrices.calcPrices(power, time, numBulbs, energyCosts):.2f}",
+        "dailyCosts": f"{energyPrices.calcPrices(power, getTot(day=now.date())[0] / 3600, numBulbs, energyCosts):.2f}",
+        "weeklyCosts": f"{energyPrices.calcPrices(power, getTot(week=now.isocalendar()[1], year=now.year)[0] / 3600, numBulbs, energyCosts):.2f}",
 
     }
     return render(request, 'light_monitoring/filament.html', context)

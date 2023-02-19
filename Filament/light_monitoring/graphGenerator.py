@@ -52,12 +52,7 @@ def secondsUnitConv(seconds):
 
 def getTot(hour=None, day=None, week=None, month=None, year=None):
     if hour:
-        qs = Data_Entry.objects.filter(startTime__hour = hour.hour) # Generate a QuerySet of all of the data gathered during the hour of the day
-        durations = []
-        for i in qs:
-            durations.append(int((i.endTime - i.startTime).total_seconds()))
-    elif year:
-        qs = Data_Entry.objects.filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given year
+        qs = Data_Entry.objects.filter(startTime__hour = hour.hour, startTime__date = hour) # Generate a QuerySet of all of the data gathered during the hour of the day
         durations = []
         for i in qs:
             durations.append(int((i.endTime - i.startTime).total_seconds()))
@@ -67,7 +62,7 @@ def getTot(hour=None, day=None, week=None, month=None, year=None):
         for i in qs:
             durations.append(int((i.endTime - i.startTime).total_seconds()))
     elif week and year:
-        qs = Data_Entry.objects.filter(endTime__week = week).filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given week in the given year
+        qs = Data_Entry.objects.filter(endTime__week = week, endTime__year = year) # Generate a QuerySet of all of the data gathered during the given week in the given year
         durations = []
         for i in qs:
             durations.append(int((i.endTime - i.startTime).total_seconds()))
@@ -76,12 +71,17 @@ def getTot(hour=None, day=None, week=None, month=None, year=None):
         durations = []
         for i in qs:
             durations.append(int((i.endTime - i.startTime).total_seconds()))
+    elif year:
+        qs = Data_Entry.objects.filter(endTime__year = year) # Generate a QuerySet of all of the data gathered during the given year
+        durations = []
+        for i in qs:
+            durations.append(int((i.endTime - i.startTime).total_seconds()))
     
     return sum(durations), len(durations)
 
 
 def calcHourAverage(dateHour):
-    tot, objs = getTot(dateHour)
+    tot, objs = getTot(hour=dateHour)
     try:
         avg = tot / objs
         return avg
