@@ -5,14 +5,14 @@
 
 {%block body%}
     <h1>DATA</h1>
-    {% for entry in data_entries%}
-        <p>{{entry.endTime|date:'Y-m-d h:i'}}</p>
-    {% endfor %}
 
     <fieldset>
-        <legend>Look up data from a certain date</legend>
-        <form method="GET">
+        <legend>Look up data from a certain date. Enter the date in the format YYYY/MM/DD, where month and date are optional.</legend>
+
+        <form method="GET" action="{% url  'dataRedirect' %}">
+            <label for="date">Enter a date:</label>
+            <input type="text" name="date" id="date">
             <input type="submit" value="submit">
         </form>
-</fieldset>
+    </fieldset>
 {%endblock%}

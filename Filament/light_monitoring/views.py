@@ -4,6 +4,8 @@ from light_monitoring.graphGenerator import *
 from .API import emissionsCalc, energyPrices
 from .forms import SettingsForm
 from django.views.generic import TemplateView
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 def filament(request):
     now = datetime.now()
@@ -22,7 +24,6 @@ def filament(request):
     DNO = SettingsData.objects.last().region if SettingsData.objects.last().region else "10"
     energyCosts = energyPrices.getEnergyCosts(DNO)
     power  = SettingsData.objects.last().bulbPower
-    time = 1 
     numBulbs = SettingsData.objects.last().numBulbs
     
     
@@ -43,7 +44,7 @@ def filament(request):
 
 def data(request):
     context = {
-        "data_entries": Data_Entry.objects.all().order_by("endTime")
+        "dataEntries": Data_Entry.objects.all().order_by("endTime")
     }
     return render(request, 'light_monitoring/data.html', context)
 
@@ -111,3 +112,19 @@ def dateData(request, year, month, day):
     }
     genDayGraph(datetime(year, month, day), imgpath)
     return render(request, 'light_monitoring/dateData.html', context)
+
+def dataRedirect(request):
+    date = request.GET.get('date')
+    if date:
+        c = date.count("/")
+        if c == 0:
+            return HttpResponseRedirect(reverse('yearData', args=[date]))
+        elif c == 1:
+            year, month = date.split('/')
+            return HttpResponseRedirect(reverse('monthData', args=[year, month]))
+        else:
+            year, month, day = date.split("/")
+            return HttpResponseRedirect(reverse('dateData', args=[year, month, day]))
+    else:
+        # Handle invalid form data
+        pass
