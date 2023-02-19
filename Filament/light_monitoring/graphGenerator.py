@@ -190,7 +190,7 @@ def formatGraph(dateFormat, figNo):
     plt.tick_params(axis='x', labelcolor=LABELCOL)
     plt.tick_params(axis='y', labelcolor=LABELCOL)
 
-def genDayGraph(date):
+def genDayGraph(date, filename):
     figNo = 1
     plt.figure(figNo)
 
@@ -210,10 +210,10 @@ def genDayGraph(date):
     plt.gca().set_ylabel('Duration (s)', color=LABELCOL)
 
     # Save
-    plt.savefig(r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\dayAvgGraph.png')
+    plt.savefig(filename)
 
 
-def genWeekGraph(week, year):
+def genWeekGraph(week, year, filename):
     figNo = 2
     plt.figure(figNo)
 
@@ -234,9 +234,9 @@ def genWeekGraph(week, year):
     plt.gca().set_ylabel('Duration (s)', color=LABELCOL)
 
     # Save
-    plt.savefig(r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\weekAvgGraph.png')
+    plt.savefig(filename)
 
-def genMonthGraph(month, year):
+def genMonthGraph(month, year, filename):
     figNo = 3
     plt.figure(figNo)
 
@@ -253,19 +253,19 @@ def genMonthGraph(month, year):
 
     # Add axis labels
     monthName = month_name[month]
-    plt.gca().set_title(f"Daily averages of energy waste from light, {monthName}", color=LABELCOL)
+    plt.gca().set_title(f"Daily averages of energy waste from light, {monthName} {year}", color=LABELCOL)
     plt.gca().set_xlabel('Date', color=LABELCOL)
     plt.gca().set_ylabel('Duration (s)', color=LABELCOL)
 
     # Save
-    plt.savefig(r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\monthAvgGraph.png')
+    plt.savefig(filename)
 
 now = datetime.now()
 date = now.replace(hour=0, minute=0, second=0) - timedelta(days=1)
 week = (now - timedelta(weeks=1)).isocalendar()[1]
 year = now.year
 month = (now - timedelta(days=now.day)).month 
-genDayGraph(date)
-genWeekGraph(week, year)
-genMonthGraph(month, year)
+genDayGraph(date, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\dayAvgGraph.png')
+genWeekGraph(week, year, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\yearAvgGraph.png')
+genMonthGraph(month, year, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\monthAvgGraph.png')
 

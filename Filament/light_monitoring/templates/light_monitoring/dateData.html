@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>Data for {{ year }}/{{ month }}/{{ day }}</h1>
+
+<ul>
+{% for entry in dataEntries %}
+    <li>{{ entry }}</li>
+{% empty %}
+    <li>No data found for this day.</li>
+{% endfor %}
+</ul>
+
+{%load static%}
+<img src="{% static 'graphs/queries/' %}{{ year }}_{{ month }}_{{ day }}.png">
+{% endblock %}

@@ -79,3 +79,35 @@ class SettingsView(TemplateView):
             "bulbType": bulbType,
         }
         return render(request, self.template_name, context)
+
+def yearData(request, year):
+    qs = Data_Entry.objects.filter(endTime__year=year)
+    context = {
+        'dataEntries': qs,
+        "year":year
+    }
+    # add after yeargraphgen done
+    return render(request, 'light_monitoring/yearData.html', context)
+
+def monthData(request, year, month):
+    qs = Data_Entry.objects.filter(endTime__year=year, endTime__month=month)
+    imgpath = fr"C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\queries\{year}_{month}"
+    context = {
+        'dataEntries': qs,
+        "year": year,
+        "month": month,
+    }
+    genMonthGraph(month, year, imgpath)
+    return render(request, 'light_monitoring/monthData.html', context)
+
+def dateData(request, year, month, day):
+    qs = Data_Entry.objects.filter(endTime__year=year, endTime__month=month, endTime__day=day)
+    imgpath = fr"C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\queries\{year}_{month}_{day}"
+    context = {
+        'dataEntries': qs,
+        "year": year,
+        "month": month,
+        "day": day,
+    }
+    genDayGraph(datetime(year, month, day), imgpath)
+    return render(request, 'light_monitoring/dateData.html', context)
