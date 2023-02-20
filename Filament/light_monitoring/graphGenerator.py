@@ -57,7 +57,9 @@ def getTot(hour=None, day=None, week=None, month=None, year=None):
         for i in qs:
             durations.append(int((i.endTime - i.startTime).total_seconds()))
     elif day:
+        print(day)
         qs = Data_Entry.objects.filter(endTime__date = day) # Generate a QuerySet of all of the data gathered at the given date
+        print(qs)
         durations = []
         for i in qs:
             durations.append(int((i.endTime - i.startTime).total_seconds()))
@@ -243,7 +245,7 @@ def genMonthGraph(month, year, filename):
     durations = []
     dates = getDatesInMonth(month, year)
     for date in dates:
-        durations.append(calcDayAverage(date.date()))
+        durations.append(calcDayAverage(date))
 
     # Create the plot
     formatGraph('%d-%m-%Y', figNo)
@@ -268,7 +270,6 @@ def genYearGraph(year, filename):
     for i in range(1, 13):
         durations.append(calcMonthAverage(i, year) / 3600)
     # Create the plot
-    print(durations)
     formatGraph('%B', figNo)
     months = [datetime(year=year, month=i, day=1) for i in range(1, 13)]
     plt.plot(months, durations, color=LINECOL)
@@ -285,10 +286,10 @@ def genYearGraph(year, filename):
 now = datetime.now()
 date = now.replace(hour=0, minute=0, second=0) - timedelta(days=1)
 week = (now - timedelta(weeks=1)).isocalendar()[1]
-year = now.year - 1
+year = now.year
 month = (now - timedelta(days=now.day)).month 
 genDayGraph(date, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\dayAvgGraph.png')
 genWeekGraph(week, year, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\yearAvgGraph.png')
 genMonthGraph(month, year, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\monthAvgGraph.png')
-genYearGraph(year, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\yearAvgGraph.png')
+genYearGraph(year-1, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\yearAvgGraph.png')
 

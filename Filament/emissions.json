@@ -1,12 +1,12 @@
 {
     "data": [
         {
-            "from": "2023-02-19T14:00Z",
-            "to": "2023-02-19T14:30Z",
+            "from": "2023-02-20T18:30Z",
+            "to": "2023-02-20T19:00Z",
             "intensity": {
-                "forecast": 93,
-                "actual": 84,
-                "index": "low"
+                "forecast": 151,
+                "actual": 131,
+                "index": "moderate"
             }
         }
     ]
