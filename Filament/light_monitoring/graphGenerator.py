@@ -6,15 +6,17 @@
 #    All functions return a tuple containing total time lights were on, and the average in that period
 #    Uses said averages to generate graphs for each time period
 #------------------------------------------------------------------------------------------------------
+# TODO: Add relative paths
 
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
-from datetime import datetime, timedelta
-import django
-from django.conf import settings
-from pathlib import Path
-import matplotlib.font_manager as font_manager
 from calendar import month_name
+from datetime import datetime, timedelta
+from pathlib import Path
+
+import django
+import matplotlib.dates as mdates
+import matplotlib.font_manager as font_manager
+import matplotlib.pyplot as plt
+from django.conf import settings
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 if not settings.configured:
@@ -26,6 +28,7 @@ if not settings.configured:
 django.setup()
 
 from .models import *
+
 
 # AVERAGES
 def secondsUnitConv(seconds):
@@ -57,9 +60,7 @@ def getTot(hour=None, day=None, week=None, month=None, year=None):
         for i in qs:
             durations.append(int((i.endTime - i.startTime).total_seconds()))
     elif day:
-        print(day)
         qs = Data_Entry.objects.filter(endTime__date = day) # Generate a QuerySet of all of the data gathered at the given date
-        print(qs)
         durations = []
         for i in qs:
             durations.append(int((i.endTime - i.startTime).total_seconds()))

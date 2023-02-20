@@ -9,7 +9,7 @@
     <h1>HOME</h1>
 
     <h2>Your lights have been on for an average of {{dailyAvg}} today, and an average of {{weeklyAvg}} this week<br>
-    Your lights have been on for an average of {{dayTot}} today, and a total of {{weekTot}} this week. <br>
+    Your lights have been on for a total of {{dayTot}} today, and a total of {{weekTot}} this week. <br>
     That's £{{dailyCosts}} today, and £{{weeklyCosts}} this week!
     <br>
     Today, you've released {{dailyEmissions}}g of CO₂ by leaving your lights on. <br>
@@ -19,28 +19,30 @@
     <hr>
     
     {%load static%}
-    <table class="graphbox">
-        <tr>
-            <td>
-                <h2>Daily data:</h2>
-                <img src="{% static 'graphs/dayAvgGraph.png' %}" height=500>
-            </td>
-            <td>
-                <h2>Weekly data:</h2>
-                <img src="{% static 'graphs/weekAvgGraph.png' %}" height=500>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h2>Monthly data:</h2>
-                <img src="{% static 'graphs/monthAvgGraph.png' %}" height=500>
-            </td>  
-            <td>
-                <h2>Yearly data:</h2>
-                <img src="{% static 'graphs/yearAvgGraph.png' %}" height=500>
-            </td>
-        </tr>
-    </table>
+    <div class="table-container">
+        <table class="graphbox">
+            <tr>
+                <td>
+                    <h2>Daily data:</h2>
+                    <img src="{% static 'graphs/dayAvgGraph.png' %}" height=500>
+                </td>
+                <td>
+                    <h2>Weekly data:</h2>
+                    <img src="{% static 'graphs/weekAvgGraph.png' %}" height=500>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h2>Monthly data:</h2>
+                    <img src="{% static 'graphs/monthAvgGraph.png' %}" height=500>
+                </td>  
+                <td>
+                    <h2>Yearly data:</h2>
+                    <img src="{% static 'graphs/yearAvgGraph.png' %}" height=500>
+                </td>
+            </tr>
+        </table>
+    </div>
 
     
 {%endblock%}

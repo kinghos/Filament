@@ -11,20 +11,24 @@ body {
     
 }
  
-.graphbox {
-    margin: auto;
+.table-container {
+    overflow-x: auto;
+}
+
+.table-container table {
+    width: 100%;
 }
 
 .topnav {
     top: 0; 
     margin: 0;
-    width: 100%; 
+    width: 100%;
     display: flex; 
+    position: sticky;
     align-items: center; 
     background-color: rgb(124, 115, 138); 
     color: #fff;
-    border-radius: 10px;
-
+    border-radius: 5px;
     
 }
 
@@ -45,7 +49,12 @@ legend {
 @media screen and (max-width: 600px) {
     .topnav {
         flex-wrap: wrap; /* Wrap the items when the screen is too small */
-        width: 100%;
+    }
+    .table-container {
+        overflow-x: scroll; /* Change to scrolling on smaller screens */
+      }
+    .topnav a {
+        size: 100px;
     }
 }
 
