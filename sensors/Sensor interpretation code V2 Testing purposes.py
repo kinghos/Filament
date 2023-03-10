@@ -1,6 +1,6 @@
 #------------------------------------------Thorium - PA Pi-------------------------------------------
 # Sensor code V2 Testing purposes
-#  - Author & Date: Umar, 20.4.22
+#  - Author & Date: Umar, 10.3.23
 #  - Description: Finds time wasted from sensor data & when it is wasted
 #                 Will only work at night as the photodiode serves only to tell if it is light or not
 #                 The daylight API should say when to pause everything and to stop recording at day.
