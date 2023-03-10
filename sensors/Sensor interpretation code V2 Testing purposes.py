@@ -14,16 +14,16 @@ import time
 import datetime
 # import RPi.GPIO as GPIO
 
-# # GPIO Setup
-# GPIO.setmode(GPIO.BOARD)
-# 
-# # Pin numbers
-# photodiode = 3 # Using PIN 3 (GPIO 2) as Input
-# pir = 5 # Using PIN 5 (GPIO 3) as Input
-# 
-# # Sets pins as digital in pins
-# GPIO.setup(photodiode,GPIO.IN) 
-# GPIO.setup(pir,GPIO.IN)
+# GPIO Setup
+GPIO.setmode(GPIO.BOARD)
+
+# Pin numbers
+photodiode = 3 # Using PIN 3 (GPIO 2) as Input
+pir = 5 # Using PIN 5 (GPIO 3) as Input
+ 
+# Sets pins as digital in pins
+GPIO.setup(photodiode,GPIO.IN) 
+GPIO.setup(pir,GPIO.IN)
 
 # Globals & set-up
 interval = 2 # Time in seconds
@@ -34,12 +34,12 @@ start = datetime.datetime.now()
 end = datetime.datetime.now()
 
 while True:
-#     light = GPIO.input(photodiode)
-#     raw_motion = GPIO.input(pir)
+    light = GPIO.input(photodiode)
+    raw_motion = GPIO.input(pir)
     
     # For testing use without hardware connected - for a True input any string, for False press enter
-    light = bool(input('Light: '))
-    raw_motion = bool(input('Motion: '))
+    # light = bool(input('Light: '))
+    # raw_motion = bool(input('Motion: '))
         
     wasted = False
     no_motion = False
