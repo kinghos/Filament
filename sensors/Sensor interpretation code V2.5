@@ -46,8 +46,7 @@ interval = 2 # Time in seconds
 wasted_prev = False
 motion_count = 0 # Refers to number of cycles where there is no motion
 len_no_motion = 5 # How long does PIR need to output 0 for until it counts as 0
-start = datetime.datetime.now()
-end = datetime.datetime.now()
+
 
 while True:
     light = GPIO.input(photodiode)
@@ -75,11 +74,11 @@ while True:
             start = datetime.datetime.now()
     
     # If X seconds ago, energy was being wasted, set end to time now
-    if wasted_prev:
+    elif wasted_prev:
         end = datetime.datetime.now()
     
-    newEntry = Data_Entry(startTime=start, endTime=end)
-    newEntry.save()
+        newEntry = Data_Entry(startTime=start, endTime=end)
+        newEntry.save()
     
     wasted_prev = wasted
     
