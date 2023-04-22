@@ -27,6 +27,16 @@ def filament(request):
     numBulbs = SettingsData.objects.last().numBulbs
     rate = emissionsCalc.getEmissionsRate()
     
+    now = datetime.now()
+    date = now.replace(hour=0, minute=0, second=0) - timedelta(days=1)
+    week = (now - timedelta(weeks=1)).isocalendar()[1]
+    year = now.year
+    month = (now - timedelta(days=now.day)).month 
+    genDayGraph(date, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\dayAvgGraph.png')
+    genWeekGraph(week, year, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\yearAvgGraph.png')
+    genMonthGraph(month, year, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\monthAvgGraph.png')
+    genYearGraph(year-1, r'C:\Users\user\Documents\Homework\Young Engineers\FilamentProj\Filament\light_monitoring\static\graphs\yearAvgGraph.png')
+    
     context = {
         "dailyAvg": dayAvg,
         "dayTot": dayTot,
