@@ -14,6 +14,8 @@ import RPi.GPIO as GPIO
 import django
 from django.conf import settings
 from pathlib import Path
+import requests
+import json
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 if not settings.configured:
@@ -44,10 +46,23 @@ GPIO.setup(pir,GPIO.IN)
 wasted_mins = 0
 interval = 120 # seconds
 wasted_prev = False
-
+LATITUDE = 51.5072
+LONGITUDE = 0.1276
 
 def daylight():
-    return True # Need this to link to Kingshuk's light_monitoring API code
+    response = requests.get(f"https://api.sunrise-sunset.org/json?lat={LATITUDE}&lng={LONGITUDE}")
+    response = response.json()
+
+    sunrise = datetime.datetime.strptime(response["results"]["sunrise"], "%H:%M:%S %p")
+    sunset = datetime.datetime.strptime(response["results"]["sunset"], "%H:%M:%S %p")
+
+    now = datetime.datetime.now(datetime.timezone.utc)
+    if now.astimezone(datetime.timezone(datetime.timedelta(hours=1))).strftime('%z') == '+0100':
+        sunrise += datetime.timedelta(hours=1)
+        sunset += datetime.timedelta(hours=13)
+
+    now = datetime.datetime.now().time()
+    return sunrise.time() < now < sunset.time()
 
 
 

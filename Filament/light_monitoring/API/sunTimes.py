@@ -1,8 +1,9 @@
 import requests
 import json
+import datetime
 
-LATITUDE = 0.0
-LONGITUDE = 0.0
+LATITUDE = 51.5072
+LONGITUDE = -0.1276
 
 def getSunTimes():
     response = requests.get(f"https://api.sunrise-sunset.org/json?lat={LATITUDE}&lng={LONGITUDE}")
@@ -12,7 +13,15 @@ def getSunTimes():
         f.seek(0) # Allows overwriting
         json.dump(response, f, indent=4) # Dumps json file
     
-    return response["results"]["sunrise"], response["results"]["sunset"]
+    sunrise = datetime.datetime.strptime(response["results"]["sunrise"], "%H:%M:%S %p")
+    sunset = datetime.datetime.strptime(response["results"]["sunset"], "%H:%M:%S %p")
 
-sunrise, sunset = getSunTimes()   
-print(f"Sunrise: {sunrise}\nSunset: {sunset}")
+    now = datetime.datetime.now(datetime.timezone.utc)
+    if now.astimezone(datetime.timezone(datetime.timedelta(hours=1))).strftime('%z') == '+0100':
+        sunrise += datetime.timedelta(hours=1)
+        sunset += datetime.timedelta(hours=13)
+
+    now = datetime.datetime.now().time()
+    return sunrise.time() < now < sunset.time()
+ 
+print(getSunTimes())
