@@ -47,7 +47,7 @@ wasted_mins = 0
 interval = 120 # seconds
 wasted_prev = False
 LATITUDE = 51.5072
-LONGITUDE = 0.1276
+LONGITUDE = -0.1276
 
 def daylight():
     response = requests.get(f"https://api.sunrise-sunset.org/json?lat={LATITUDE}&lng={LONGITUDE}")
