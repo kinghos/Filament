@@ -62,7 +62,7 @@ def daylight():
         sunset += datetime.timedelta(hours=13)
 
     now = datetime.datetime.now().time()
-    return sunrise.time() < now < sunset.time()
+    return sunrise.time() + datetime.timedelta(hours = 2) < now < sunset.time() - datetime.timedelta(hours = 2)
 
 
 
