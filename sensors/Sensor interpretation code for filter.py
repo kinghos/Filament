@@ -31,8 +31,8 @@ from Filament.light_monitoring.models import Data_Entry
 
 
 # Pin numbers
-system = 3 # Filtered signal from circuit
-pir = 4
+photodiode = 3 # Using PIN 3 (GPIO 2) as Input
+pir = 5 # Using PIN 5 (GPIO 3) as Input
 
 # GPIO Setup
 GPIO.setmode(GPIO.BOARD)
