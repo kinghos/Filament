@@ -71,7 +71,8 @@ while True:
     # If over the period of 0.5 seconds, the system outputs a 1 at least once, artificial light is true, else it is false
     artificial_light = False
     for i in range(500):
-        if out_system == 1:
+        out_system = bool(GPIO.input(system))
+        if out_system:
             artficial_light = True
         time.sleep(0.001)
      
@@ -87,4 +88,5 @@ while True:
         newEntry.save()
       
     is_wasted_prev = is_wasted # Records whether energy was wasted last reading
+    print('is_wasted: ' + is_wasted)
     time.sleep(interval)
