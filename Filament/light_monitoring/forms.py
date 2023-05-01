@@ -21,7 +21,6 @@ class SettingsForm(forms.ModelForm):
     BULBCHOICES = (
         ("N/A", "Unsure"),
         ("HAL", "Halogen"),
-        ("FIL", "Filament"),
         ("LED", "LED"),
     )
 

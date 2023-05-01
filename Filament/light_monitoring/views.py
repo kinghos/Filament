@@ -21,7 +21,7 @@ def filament(request):
     monthAvg = secondsUnitConv(calcMonthAverage(now.month, now.year))
     yearAvg = secondsUnitConv(calcYearAverage(now.year))
 
-    DNO = SettingsData.objects.last().region if SettingsData.objects.last().region else "10"
+    DNO = SettingsData.objects.last().region if SettingsData.objects.last().region else "12"
     energyCosts = energyPrices.getEnergyCosts(DNO)
     power  = SettingsData.objects.last().bulbPower
     numBulbs = SettingsData.objects.last().numBulbs
