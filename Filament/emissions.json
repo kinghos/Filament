@@ -1,11 +1,11 @@
 {
     "data": [
         {
-            "from": "2023-04-26T20:00Z",
-            "to": "2023-04-26T20:30Z",
+            "from": "2023-05-02T20:30Z",
+            "to": "2023-05-02T21:00Z",
             "intensity": {
-                "forecast": 244,
-                "actual": 256,
+                "forecast": 240,
+                "actual": 241,
                 "index": "high"
             }
         }

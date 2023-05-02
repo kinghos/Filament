@@ -5,249 +5,249 @@
         "voltageLevel": "LV",
         "data": [
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682380800,
-                "Timestamp": "00:00 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682899200,
+                "Timestamp": "00:00 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682382600,
-                "Timestamp": "00:30 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682901000,
+                "Timestamp": "00:30 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682384400,
-                "Timestamp": "01:00 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682902800,
+                "Timestamp": "01:00 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682386200,
-                "Timestamp": "01:30 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682904600,
+                "Timestamp": "01:30 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682388000,
-                "Timestamp": "02:00 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682906400,
+                "Timestamp": "02:00 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682389800,
-                "Timestamp": "02:30 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682908200,
+                "Timestamp": "02:30 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682391600,
-                "Timestamp": "03:00 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682910000,
+                "Timestamp": "03:00 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682393400,
-                "Timestamp": "03:30 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682911800,
+                "Timestamp": "03:30 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682395200,
-                "Timestamp": "04:00 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682913600,
+                "Timestamp": "04:00 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682397000,
-                "Timestamp": "04:30 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682915400,
+                "Timestamp": "04:30 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682398800,
-                "Timestamp": "05:00 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682917200,
+                "Timestamp": "05:00 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682400600,
-                "Timestamp": "05:30 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682919000,
+                "Timestamp": "05:30 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682402400,
-                "Timestamp": "06:00 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682920800,
+                "Timestamp": "06:00 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682404200,
-                "Timestamp": "06:30 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682922600,
+                "Timestamp": "06:30 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682406000,
-                "Timestamp": "07:00 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682924400,
+                "Timestamp": "07:00 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682407800,
-                "Timestamp": "07:30 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682926200,
+                "Timestamp": "07:30 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682409600,
-                "Timestamp": "08:00 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682928000,
+                "Timestamp": "08:00 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682411400,
-                "Timestamp": "08:30 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682929800,
+                "Timestamp": "08:30 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682413200,
-                "Timestamp": "09:00 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682931600,
+                "Timestamp": "09:00 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682415000,
-                "Timestamp": "09:30 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682933400,
+                "Timestamp": "09:30 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682416800,
-                "Timestamp": "10:00 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682935200,
+                "Timestamp": "10:00 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682418600,
-                "Timestamp": "10:30 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682937000,
+                "Timestamp": "10:30 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682420400,
-                "Timestamp": "11:00 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682938800,
+                "Timestamp": "11:00 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682422200,
-                "Timestamp": "11:30 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682940600,
+                "Timestamp": "11:30 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682424000,
-                "Timestamp": "12:00 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682942400,
+                "Timestamp": "12:00 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682425800,
-                "Timestamp": "12:30 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682944200,
+                "Timestamp": "12:30 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682427600,
-                "Timestamp": "13:00 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682946000,
+                "Timestamp": "13:00 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682429400,
-                "Timestamp": "13:30 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682947800,
+                "Timestamp": "13:30 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682431200,
-                "Timestamp": "14:00 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682949600,
+                "Timestamp": "14:00 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682433000,
-                "Timestamp": "14:30 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682951400,
+                "Timestamp": "14:30 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682434800,
-                "Timestamp": "15:00 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682953200,
+                "Timestamp": "15:00 01-05-2023"
             },
             {
-                "Overall": 11.54,
-                "unixTimestamp": 1682436600,
-                "Timestamp": "15:30 25-04-2023"
+                "Overall": 11.53,
+                "unixTimestamp": 1682955000,
+                "Timestamp": "15:30 01-05-2023"
             },
             {
-                "Overall": 20.88,
-                "unixTimestamp": 1682438400,
-                "Timestamp": "16:00 25-04-2023"
+                "Overall": 20.87,
+                "unixTimestamp": 1682956800,
+                "Timestamp": "16:00 01-05-2023"
             },
             {
-                "Overall": 20.88,
-                "unixTimestamp": 1682440200,
-                "Timestamp": "16:30 25-04-2023"
+                "Overall": 20.87,
+                "unixTimestamp": 1682958600,
+                "Timestamp": "16:30 01-05-2023"
             },
             {
-                "Overall": 20.88,
-                "unixTimestamp": 1682442000,
-                "Timestamp": "17:00 25-04-2023"
+                "Overall": 20.87,
+                "unixTimestamp": 1682960400,
+                "Timestamp": "17:00 01-05-2023"
             },
             {
-                "Overall": 20.88,
-                "unixTimestamp": 1682443800,
-                "Timestamp": "17:30 25-04-2023"
+                "Overall": 20.87,
+                "unixTimestamp": 1682962200,
+                "Timestamp": "17:30 01-05-2023"
             },
             {
-                "Overall": 20.88,
-                "unixTimestamp": 1682445600,
-                "Timestamp": "18:00 25-04-2023"
+                "Overall": 20.87,
+                "unixTimestamp": 1682964000,
+                "Timestamp": "18:00 01-05-2023"
             },
             {
-                "Overall": 20.88,
-                "unixTimestamp": 1682447400,
-                "Timestamp": "18:30 25-04-2023"
-            },
-            {
-                "Overall": 11.18,
-                "unixTimestamp": 1682449200,
-                "Timestamp": "19:00 25-04-2023"
+                "Overall": 20.87,
+                "unixTimestamp": 1682965800,
+                "Timestamp": "18:30 01-05-2023"
             },
             {
                 "Overall": 11.18,
-                "unixTimestamp": 1682451000,
-                "Timestamp": "19:30 25-04-2023"
+                "unixTimestamp": 1682967600,
+                "Timestamp": "19:00 01-05-2023"
             },
             {
                 "Overall": 11.18,
-                "unixTimestamp": 1682452800,
-                "Timestamp": "20:00 25-04-2023"
+                "unixTimestamp": 1682969400,
+                "Timestamp": "19:30 01-05-2023"
             },
             {
                 "Overall": 11.18,
-                "unixTimestamp": 1682454600,
-                "Timestamp": "20:30 25-04-2023"
+                "unixTimestamp": 1682971200,
+                "Timestamp": "20:00 01-05-2023"
             },
             {
                 "Overall": 11.18,
-                "unixTimestamp": 1682456400,
-                "Timestamp": "21:00 25-04-2023"
+                "unixTimestamp": 1682973000,
+                "Timestamp": "20:30 01-05-2023"
             },
             {
                 "Overall": 11.18,
-                "unixTimestamp": 1682458200,
-                "Timestamp": "21:30 25-04-2023"
+                "unixTimestamp": 1682974800,
+                "Timestamp": "21:00 01-05-2023"
             },
             {
                 "Overall": 11.18,
-                "unixTimestamp": 1682460000,
-                "Timestamp": "22:00 25-04-2023"
+                "unixTimestamp": 1682976600,
+                "Timestamp": "21:30 01-05-2023"
             },
             {
                 "Overall": 11.18,
-                "unixTimestamp": 1682461800,
-                "Timestamp": "22:30 25-04-2023"
+                "unixTimestamp": 1682978400,
+                "Timestamp": "22:00 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682463600,
-                "Timestamp": "23:00 25-04-2023"
+                "Overall": 11.18,
+                "unixTimestamp": 1682980200,
+                "Timestamp": "22:30 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682465400,
-                "Timestamp": "23:30 25-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682982000,
+                "Timestamp": "23:00 01-05-2023"
             },
             {
-                "Overall": 10.82,
-                "unixTimestamp": 1682467200,
-                "Timestamp": "00:00 26-04-2023"
+                "Overall": 10.81,
+                "unixTimestamp": 1682983800,
+                "Timestamp": "23:30 01-05-2023"
+            },
+            {
+                "Overall": 10.81,
+                "unixTimestamp": 1682985600,
+                "Timestamp": "00:00 02-05-2023"
             }
         ]
     }
