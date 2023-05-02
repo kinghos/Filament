@@ -224,7 +224,6 @@ def genWeekGraph(week, year, filename):
     durations = []
     for date in weekDatesList:
         durations.append(calcDayAverage(date.date()))
-
     # Create the plot
     formatGraph('%d-%m-%Y', figNo)
     plt.plot(weekDatesList, durations, color=LINECOL)
